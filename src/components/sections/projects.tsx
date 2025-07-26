@@ -51,19 +51,19 @@ export default function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto px-6 md:px-8 lg:px-12" style={{ marginLeft: '8px', marginRight: '8px' }}>
           <AnimatePresence mode="wait">
             {filteredProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-                whileHover={{ 
-                  scale: 1.02, 
-                  y: -6,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
-                }}
-                className="bg-gradient-to-br from-background-secondary/90 to-background-secondary/70 rounded-3xl border border-border-light/50 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group backdrop-blur-sm"
-              >
+                              <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
+                  whileHover={{ 
+                    scale: 1.02, 
+                    y: -4,
+                    boxShadow: "0 15px 35px rgba(0,0,0,0.08)"
+                  }}
+                  className="bg-gradient-to-br from-background-secondary/90 to-background-secondary/70 rounded-3xl border border-border-light/50 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group backdrop-blur-sm"
+                >
                 {/* Header del proyecto */}
                 <div className="p-8 border-b border-border-light/30">
                   <div className="flex items-center justify-between mb-6">
@@ -174,7 +174,11 @@ export default function Projects() {
             animate={{ opacity: 1 }}
             className="text-center py-16"
           >
-            <div className="text-7xl mb-6">🔍</div>
+            <div className="w-16 h-16 bg-accent-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg className="w-8 h-8 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
             <h3 className="text-2xl font-bold text-foreground mb-4">
               No se encontraron proyectos
             </h3>
