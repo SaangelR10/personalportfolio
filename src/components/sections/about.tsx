@@ -163,51 +163,85 @@ export default function About() {
             ))}
           </motion.div>
 
-          {/* Experiencia resumida */}
+          {/* Experiencia rediseñada */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="bg-background/50 rounded-2xl p-8 border border-border-light"
+            className="mt-20"
           >
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 bg-accent-primary/10 rounded-xl flex items-center justify-center">
-                <Award className="w-6 h-6 text-accent-primary" />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground">Experiencia</h3>
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-foreground mb-4">
+                <span className="text-accent-primary">Experiencia</span>
+              </h3>
+              <p className="text-lg text-foreground-secondary max-w-2xl mx-auto">
+                Especializado en diferentes áreas del desarrollo digital
+              </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex items-center gap-4 p-4 bg-background-secondary/30 rounded-xl">
-                <div className="w-10 h-10 bg-accent-primary/10 rounded-lg flex items-center justify-center">
-                  <Code className="w-5 h-5 text-accent-primary" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <motion.div 
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="bg-gradient-to-br from-accent-primary/10 to-accent-primary/5 rounded-2xl p-6 border border-accent-primary/20 hover:border-accent-primary/40 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-accent-primary/20 rounded-xl flex items-center justify-center">
+                    <Code className="w-6 h-6 text-accent-primary" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-foreground">Frontend Developer</h4>
+                    <p className="text-sm text-accent-primary font-medium">Especialista</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-foreground">Frontend Developer</h4>
-                  <p className="text-sm text-foreground-secondary">React, Next.js, TypeScript</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-accent-primary/10 text-accent-primary text-xs font-medium rounded-full">React</span>
+                  <span className="px-3 py-1 bg-accent-primary/10 text-accent-primary text-xs font-medium rounded-full">Next.js</span>
+                  <span className="px-3 py-1 bg-accent-primary/10 text-accent-primary text-xs font-medium rounded-full">TypeScript</span>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="flex items-center gap-4 p-4 bg-background-secondary/30 rounded-xl">
-                <div className="w-10 h-10 bg-accent-secondary/10 rounded-lg flex items-center justify-center">
-                  <User className="w-5 h-5 text-accent-secondary" />
+              <motion.div 
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="bg-gradient-to-br from-accent-secondary/10 to-accent-secondary/5 rounded-2xl p-6 border border-accent-secondary/20 hover:border-accent-secondary/40 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-accent-secondary/20 rounded-xl flex items-center justify-center">
+                    <User className="w-6 h-6 text-accent-secondary" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-foreground">UI/UX Designer</h4>
+                    <p className="text-sm text-accent-secondary font-medium">Creativo</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-foreground">UI/UX Designer</h4>
-                  <p className="text-sm text-foreground-secondary">Figma, Adobe XD, Prototyping</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-accent-secondary/10 text-accent-secondary text-xs font-medium rounded-full">Figma</span>
+                  <span className="px-3 py-1 bg-accent-secondary/10 text-accent-secondary text-xs font-medium rounded-full">Adobe XD</span>
+                  <span className="px-3 py-1 bg-accent-secondary/10 text-accent-secondary text-xs font-medium rounded-full">Prototyping</span>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="flex items-center gap-4 p-4 bg-background-secondary/30 rounded-xl">
-                <div className="w-10 h-10 bg-accent-success/10 rounded-lg flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-accent-success" />
+              <motion.div 
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="bg-gradient-to-br from-accent-success/10 to-accent-success/5 rounded-2xl p-6 border border-accent-success/20 hover:border-accent-success/40 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-accent-success/20 rounded-xl flex items-center justify-center">
+                    <Clock className="w-6 h-6 text-accent-success" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-foreground">Mobile Developer</h4>
+                    <p className="text-sm text-accent-success font-medium">Nativo</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-foreground">Mobile Developer</h4>
-                  <p className="text-sm text-foreground-secondary">React Native, Flutter</p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 bg-accent-success/10 text-accent-success text-xs font-medium rounded-full">React Native</span>
+                  <span className="px-3 py-1 bg-accent-success/10 text-accent-success text-xs font-medium rounded-full">Flutter</span>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 
