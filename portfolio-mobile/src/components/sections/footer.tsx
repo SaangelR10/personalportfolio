@@ -32,7 +32,7 @@ export default function Footer() {
             className="lg:col-span-2"
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent-blue to-accent-magenta flex items-center justify-center">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center">
                 <Code className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-foreground">Portfolio</h3>
@@ -52,9 +52,9 @@ export default function Footer() {
                   whileTap={{ scale: 0.9 }}
                   className="w-12 h-12 bg-background/50 rounded-2xl border border-border flex items-center justify-center hover:border-accent-blue/30 hover:bg-accent-blue/10 transition-all duration-300"
                 >
-                  {social.name === 'LinkedIn' && <Linkedin className="w-6 h-6 text-accent-blue" />}
-                  {social.name === 'GitHub' && <Github className="w-6 h-6 text-foreground" />}
-                  {social.name === 'Twitter' && <Twitter className="w-6 h-6 text-accent-magenta" />}
+                                     {social.name === 'LinkedIn' && <Linkedin className="w-6 h-6 text-accent-primary" />}
+                   {social.name === 'GitHub' && <Github className="w-6 h-6 text-foreground" />}
+                   {social.name === 'Twitter' && <Twitter className="w-6 h-6 text-accent-secondary" />}
                 </motion.a>
               ))}
             </div>
@@ -73,7 +73,7 @@ export default function Footer() {
                 <li key={section.name}>
                   <a
                     href={section.href}
-                    className="text-foreground-secondary hover:text-accent-blue transition-colors duration-300 text-lg"
+                    className="text-foreground-secondary hover:text-accent-primary transition-colors duration-300 text-lg"
                   >
                     {section.name}
                   </a>
@@ -110,7 +110,7 @@ export default function Footer() {
               className="flex items-center gap-2 text-foreground-secondary"
             >
               <span>© 2025 Portfolio. Hecho con</span>
-              <Heart className="w-5 h-5 text-accent-magenta fill-current" />
+              <Heart className="w-5 h-5 text-accent-secondary fill-current" />
               <span>y Next.js</span>
             </motion.div>
 
@@ -119,7 +119,7 @@ export default function Footer() {
               onClick={scrollToTop}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent-blue to-accent-magenta text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent-primary to-accent-secondary text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <ArrowUp className="w-5 h-5" />
               Volver arriba

@@ -46,9 +46,9 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold mb-8">
             <span className="text-foreground">Mis </span>
-            <span className="text-accent-blue">Habilidades</span>
+            <span className="text-accent-primary">Habilidades</span>
           </h2>
         </motion.div>
 
@@ -61,19 +61,19 @@ export default function Skills() {
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
         >
           <div className="bg-background/50 rounded-3xl p-8 text-center border border-border">
-            <div className="text-4xl font-bold text-accent-blue mb-3">3+</div>
+            <div className="text-4xl font-bold text-accent-primary mb-3">3+</div>
             <div className="text-sm text-foreground-secondary">Años de Experiencia</div>
           </div>
           <div className="bg-background/50 rounded-3xl p-8 text-center border border-border">
-            <div className="text-4xl font-bold text-accent-magenta mb-3">20+</div>
+            <div className="text-4xl font-bold text-accent-secondary mb-3">20+</div>
             <div className="text-sm text-foreground-secondary">Proyectos Completados</div>
           </div>
           <div className="bg-background/50 rounded-3xl p-8 text-center border border-border">
-            <div className="text-4xl font-bold text-accent-green mb-3">15+</div>
+            <div className="text-4xl font-bold text-accent-success mb-3">15+</div>
             <div className="text-sm text-foreground-secondary">Tecnologías Dominadas</div>
           </div>
           <div className="bg-background/50 rounded-3xl p-8 text-center border border-border">
-            <div className="text-4xl font-bold text-accent-blue mb-3">100%</div>
+            <div className="text-4xl font-bold text-accent-primary mb-3">100%</div>
             <div className="text-sm text-foreground-secondary">Satisfacción del Cliente</div>
           </div>
         </motion.div>
@@ -122,9 +122,9 @@ export default function Skills() {
                           <h4 className="text-xl font-bold text-foreground group-hover:text-accent-blue transition-colors">
                             {skill.name}
                           </h4>
-                          <span className="text-lg font-bold text-accent-blue">
-                            {skill.level}%
-                          </span>
+                                    <span className="text-lg font-bold text-accent-primary">
+            {skill.level}%
+          </span>
                         </div>
                         
                         {/* Barra de progreso mejorada */}
@@ -134,7 +134,7 @@ export default function Skills() {
                             whileInView={{ width: `${skill.level}%` }}
                             viewport={{ once: true }}
                             transition={{ duration: 1, delay: skillIndex * 0.1 }}
-                            className={`h-full bg-gradient-to-r from-accent-blue to-accent-magenta rounded-full`}
+                            className={`h-full bg-gradient-to-r from-accent-primary to-accent-secondary rounded-full`}
                           />
                         </div>
                         
@@ -156,7 +156,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-20 bg-gradient-to-r from-accent-blue/10 via-accent-magenta/10 to-accent-green/10 rounded-3xl p-12 border border-accent-blue/20"
+          className="mt-20 bg-gradient-to-r from-accent-primary/10 via-accent-secondary/10 to-accent-success/10 rounded-3xl p-12 border border-accent-primary/20"
         >
           <div className="text-center">
             <h3 className="text-3xl font-bold text-foreground mb-6">

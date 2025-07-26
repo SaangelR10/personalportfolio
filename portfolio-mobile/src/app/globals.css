@@ -1,15 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  /* Paleta de colores del portafolio */
-  --background: #121212;
-  --background-secondary: #1A1A1A;
+  /* Nueva paleta de colores profesional */
+  --background: #0A0A0A;
+  --background-secondary: #111111;
+  --background-tertiary: #1A1A1A;
   --foreground: #FFFFFF;
-  --foreground-secondary: #D3D3D3;
-  --accent-blue: #00DDEB;
-  --accent-magenta: #FF007A;
-  --accent-green: #00FF7F;
+  --foreground-secondary: #A0A0A0;
+  --foreground-muted: #666666;
+  
+  /* Colores de acento modernos y profesionales */
+  --accent-primary: #3B82F6;      /* Azul profesional */
+  --accent-secondary: #8B5CF6;    /* Púrpura elegante */
+  --accent-success: #10B981;      /* Verde suave */
+  --accent-warning: #F59E0B;      /* Naranja cálido */
+  --accent-danger: #EF4444;       /* Rojo suave */
+  
+  /* Gradientes modernos */
+  --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+  --gradient-secondary: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+  --gradient-accent: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+  
+  /* Bordes y sombras */
   --border: #2A2A2A;
+  --border-light: #333333;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   
   /* Fuentes */
   --font-inter: var(--font-inter);
@@ -24,12 +42,17 @@
 @theme inline {
   --color-background: var(--background);
   --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
   --color-foreground: var(--foreground);
   --color-foreground-secondary: var(--foreground-secondary);
-  --color-accent-blue: var(--accent-blue);
-  --color-accent-magenta: var(--accent-magenta);
-  --color-accent-green: var(--accent-green);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-success: var(--accent-success);
+  --color-accent-warning: var(--accent-warning);
+  --color-accent-danger: var(--accent-danger);
   --color-border: var(--border);
+  --color-border-light: var(--border-light);
   --font-sans: var(--font-inter);
   --font-heading: var(--font-poppins);
 }
@@ -127,23 +150,23 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-blue);
+  background: var(--accent-primary);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-magenta);
+  background: var(--accent-secondary);
 }
 
 /* Selección de texto */
 ::selection {
-  background: var(--accent-blue);
+  background: var(--accent-primary);
   color: var(--background);
 }
 
 /* Focus visible para accesibilidad */
 :focus-visible {
-  outline: 2px solid var(--accent-blue);
+  outline: 2px solid var(--accent-primary);
   outline-offset: 2px;
 }
 

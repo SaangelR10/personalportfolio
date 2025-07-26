@@ -27,9 +27,9 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold mb-8">
             <span className="text-foreground">Mis </span>
-            <span className="text-accent-blue">Proyectos</span>
+            <span className="text-accent-primary">Proyectos</span>
           </h2>
         </motion.div>
 
@@ -48,11 +48,11 @@ export default function Projects() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-3 rounded-2xl font-medium transition-all duration-300 ${
-                  activeCategory === category
-                    ? 'bg-gradient-to-r from-accent-blue to-accent-magenta text-white shadow-lg'
-                    : 'bg-background-secondary/50 text-foreground-secondary hover:bg-background-secondary hover:text-foreground border border-border'
-                }`}
+                                  className={`px-6 py-3 rounded-2xl font-medium transition-all duration-300 ${
+                    activeCategory === category
+                      ? 'bg-gradient-to-r from-accent-primary to-accent-secondary text-white shadow-lg'
+                      : 'bg-background-secondary/50 text-foreground-secondary hover:bg-background-secondary hover:text-foreground border border-border'
+                  }`}
               >
                 {category}
               </motion.button>
@@ -80,10 +80,10 @@ export default function Projects() {
               >
                 <div className="bg-background-secondary/30 rounded-3xl overflow-hidden border border-border hover:border-accent-blue/30 transition-all duration-300 hover:shadow-2xl hover:shadow-accent-blue/10 h-full">
                   {/* Imagen del proyecto mejorada */}
-                  <div className="relative h-64 bg-gradient-to-br from-accent-blue/20 via-accent-magenta/20 to-accent-green/20 overflow-hidden">
+                  <div className="relative h-64 bg-gradient-to-br from-accent-primary/20 via-accent-secondary/20 to-accent-success/20 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-background/20 to-transparent" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-8xl text-accent-blue/30 font-bold">
+                      <div className="text-8xl text-accent-primary/30 font-bold">
                         {project.title.charAt(0)}
                       </div>
                     </div>
@@ -93,7 +93,7 @@ export default function Projects() {
                       {project.demoUrl && (
                         <Button
                           size="sm"
-                          className="bg-accent-blue hover:bg-accent-blue/80 text-white px-6 py-3 rounded-xl"
+                          className="bg-accent-primary hover:bg-accent-primary/80 text-white px-6 py-3 rounded-xl"
                           onClick={() => window.open(project.demoUrl, '_blank')}
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
@@ -104,7 +104,7 @@ export default function Projects() {
                         <Button
                           size="sm"
                           variant="outline"
-                          className="border-accent-magenta text-accent-magenta hover:bg-accent-magenta/10 px-6 py-3 rounded-xl"
+                          className="border-accent-secondary text-accent-secondary hover:bg-accent-secondary/10 px-6 py-3 rounded-xl"
                           onClick={() => window.open(project.githubUrl, '_blank')}
                         >
                           <Github className="w-4 h-4 mr-2" />
@@ -117,10 +117,10 @@ export default function Projects() {
                   {/* Contenido del proyecto simplificado */}
                   <div className="p-8">
                     <div className="flex items-start justify-between mb-4">
-                      <h3 className="text-2xl font-bold text-foreground group-hover:text-accent-blue transition-colors">
+                      <h3 className="text-2xl font-bold text-foreground group-hover:text-accent-primary transition-colors">
                         {project.title}
                       </h3>
-                      <span className="text-xs bg-accent-green/10 text-accent-green px-3 py-1 rounded-full font-medium">
+                      <span className="text-xs bg-accent-success/10 text-accent-success px-3 py-1 rounded-full font-medium">
                         {project.category}
                       </span>
                     </div>
@@ -140,7 +140,7 @@ export default function Projects() {
                         </span>
                       ))}
                       {project.technologies.length > 3 && (
-                        <span className="text-xs bg-accent-blue/10 text-accent-blue px-3 py-2 rounded-xl">
+                        <span className="text-xs bg-accent-primary/10 text-accent-primary px-3 py-2 rounded-xl">
                           +{project.technologies.length - 3}
                         </span>
                       )}
