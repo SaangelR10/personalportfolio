@@ -15,7 +15,7 @@ export default function Hero() {
       </div>
 
       {/* Contenido principal - Subido desde arriba */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 pt-32 pb-40">
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 pt-32 pb-56">
         {/* Badge de estado */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -103,12 +103,12 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Botones CTA mejorados - Con más espacio abajo */}
+        {/* Botones CTA mejorados - Sin margen inferior extra */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-40"
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
           <Button 
             size="lg" 
