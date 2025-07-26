@@ -53,15 +53,14 @@ export default function Projects() {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 40, rotateX: -10 }}
-                animate={{ opacity: 1, y: 0, rotateX: 0 }}
-                exit={{ opacity: 0, y: 40, rotateX: -10 }}
-                transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
+                initial={{ opacity: 0, scale: 0.8, rotateZ: -6 }}
+                animate={{ opacity: 1, scale: 1, rotateZ: 0 }}
+                exit={{ opacity: 0, scale: 0.8, rotateZ: -6 }}
+                transition={{ duration: 0.7, delay: index * 0.13, ease: "backOut" }}
                 whileHover={{ 
-                  scale: 1.03, 
-                  y: -12,
-                  rotateY: 2,
-                  boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
+                  scale: 1.09, 
+                  rotateZ: 3,
+                  boxShadow: "0 30px 80px rgba(59,130,246,0.18)"
                 }}
                 className="bg-gradient-to-br from-background-secondary/90 to-background-secondary/70 rounded-3xl border border-border-light/50 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group backdrop-blur-sm"
               >

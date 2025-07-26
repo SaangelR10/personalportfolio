@@ -185,22 +185,21 @@ export default function About() {
             
             <div className="flex flex-col items-center gap-6 max-w-4xl mx-auto px-6">
               <motion.div 
-                initial={{ opacity: 0, y: 30, rotateX: -15 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                initial={{ opacity: 0, scale: 0.8, rotateZ: -5 }}
+                whileInView={{ opacity: 1, scale: 1, rotateZ: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 0.1, ease: "backOut" }}
                 whileHover={{ 
-                  scale: 1.05, 
-                  y: -8,
-                  rotateY: 5,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                  scale: 1.08, 
+                  rotateZ: 2,
+                  boxShadow: "0 25px 60px rgba(59, 130, 246, 0.15)"
                 }}
                 className="bg-gradient-to-br from-accent-primary/10 to-accent-primary/5 rounded-2xl p-6 border border-accent-primary/20 hover:border-accent-primary/40 transition-all duration-500 text-center w-full max-w-sm backdrop-blur-sm"
               >
                                   <div className="flex flex-col items-center gap-3 mb-4">
                     <motion.div 
-                      whileHover={{ rotate: 360, scale: 1.2 }}
-                      transition={{ duration: 0.6, ease: "easeInOut" }}
+                      whileHover={{ rotate: 180, scale: 1.3, y: -5 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
                       className="w-12 h-12 bg-gradient-to-br from-accent-primary/20 to-accent-primary/10 rounded-xl flex items-center justify-center shadow-lg"
                     >
                       <Code className="w-6 h-6 text-accent-primary" />
@@ -212,8 +211,8 @@ export default function About() {
                 </div>
                 <div className="flex flex-wrap gap-2 justify-center">
                   <motion.span 
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    whileHover={{ scale: 1.15, y: -3, rotateZ: 5 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
                     className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-blue-600/20 text-blue-500 text-sm font-medium rounded-full border border-blue-500/20 hover:border-blue-500/40"
                   >
                     React
@@ -236,15 +235,14 @@ export default function About() {
               </motion.div>
               
               <motion.div 
-                initial={{ opacity: 0, y: 30, rotateX: -15 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                initial={{ opacity: 0, scale: 0.8, rotateZ: 5 }}
+                whileInView={{ opacity: 1, scale: 1, rotateZ: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "backOut" }}
                 whileHover={{ 
-                  scale: 1.05, 
-                  y: -8,
-                  rotateY: 5,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                  scale: 1.08, 
+                  rotateZ: -2,
+                  boxShadow: "0 25px 60px rgba(139, 92, 246, 0.15)"
                 }}
                 className="bg-gradient-to-br from-accent-secondary/10 to-accent-secondary/5 rounded-2xl p-6 border border-accent-secondary/20 hover:border-accent-secondary/40 transition-all duration-500 text-center w-full max-w-sm backdrop-blur-sm"
               >
@@ -287,22 +285,21 @@ export default function About() {
               </motion.div>
               
               <motion.div 
-                initial={{ opacity: 0, y: 30, rotateX: -15 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                initial={{ opacity: 0, scale: 0.8, rotateZ: 8 }}
+                whileInView={{ opacity: 1, scale: 1, rotateZ: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 0.3, ease: "backOut" }}
                 whileHover={{ 
-                  scale: 1.05, 
-                  y: -8,
-                  rotateY: 5,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                  scale: 1.08, 
+                  rotateZ: -4,
+                  boxShadow: "0 25px 60px rgba(16, 185, 129, 0.15)"
                 }}
                 className="bg-gradient-to-br from-accent-success/10 to-accent-success/5 rounded-2xl p-6 border border-accent-success/20 hover:border-accent-success/40 transition-all duration-500 text-center w-full max-w-sm backdrop-blur-sm"
               >
                 <div className="flex flex-col items-center gap-3 mb-4">
                   <motion.div 
-                    whileHover={{ rotate: 360, scale: 1.2 }}
-                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    whileHover={{ rotate: -180, scale: 1.3, y: -5 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
                     className="w-12 h-12 bg-gradient-to-br from-accent-success/20 to-accent-success/10 rounded-xl flex items-center justify-center shadow-lg"
                   >
                     <Clock className="w-6 h-6 text-accent-success" />
@@ -314,15 +311,15 @@ export default function About() {
                 </div>
                 <div className="flex flex-wrap gap-2 justify-center">
                   <motion.span 
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    whileHover={{ scale: 1.15, y: -3, rotateZ: -5 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
                     className="px-3 py-1 bg-gradient-to-r from-teal-500/20 to-teal-600/20 text-teal-500 text-sm font-medium rounded-full border border-teal-500/20 hover:border-teal-500/40"
                   >
                     React Native
                   </motion.span>
                   <motion.span 
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    whileHover={{ scale: 1.15, y: -3, rotateZ: -5 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
                     className="px-3 py-1 bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 text-emerald-500 text-sm font-medium rounded-full border border-emerald-500/20 hover:border-emerald-500/40"
                   >
                     Flutter
