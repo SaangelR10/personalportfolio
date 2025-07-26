@@ -52,9 +52,9 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold mb-8">
             <span className="text-foreground">Contácta</span>
-            <span className="text-accent-blue">me</span>
+            <span className="text-accent-primary">me</span>
           </h2>
         </motion.div>
 
@@ -74,8 +74,8 @@ export default function Contact() {
               
               <div className="space-y-6">
                 <div className="flex items-center gap-6 p-6 bg-background-secondary/30 rounded-2xl border border-border">
-                  <div className="w-16 h-16 bg-accent-blue/10 rounded-2xl flex items-center justify-center">
-                    <Mail className="w-8 h-8 text-accent-blue" />
+                  <div className="w-16 h-16 bg-accent-primary/10 rounded-2xl flex items-center justify-center">
+                    <Mail className="w-8 h-8 text-accent-primary" />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-foreground mb-1">Email</h4>
@@ -84,8 +84,8 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-center gap-6 p-6 bg-background-secondary/30 rounded-2xl border border-border">
-                  <div className="w-16 h-16 bg-accent-magenta/10 rounded-2xl flex items-center justify-center">
-                    <Phone className="w-8 h-8 text-accent-magenta" />
+                  <div className="w-16 h-16 bg-accent-secondary/10 rounded-2xl flex items-center justify-center">
+                    <Phone className="w-8 h-8 text-accent-secondary" />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-foreground mb-1">Teléfono</h4>
@@ -94,8 +94,8 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-center gap-6 p-6 bg-background-secondary/30 rounded-2xl border border-border">
-                  <div className="w-16 h-16 bg-accent-green/10 rounded-2xl flex items-center justify-center">
-                    <MapPin className="w-8 h-8 text-accent-green" />
+                  <div className="w-16 h-16 bg-accent-success/10 rounded-2xl flex items-center justify-center">
+                    <MapPin className="w-8 h-8 text-accent-success" />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-foreground mb-1">Ubicación</h4>
@@ -121,26 +121,26 @@ export default function Contact() {
                     whileTap={{ scale: 0.9 }}
                     className="w-14 h-14 bg-background-secondary/30 rounded-2xl border border-border flex items-center justify-center hover:border-accent-blue/30 hover:bg-accent-blue/10 transition-all duration-300"
                   >
-                    {social.name === 'LinkedIn' && <Linkedin className="w-7 h-7 text-accent-blue" />}
-                    {social.name === 'GitHub' && <Github className="w-7 h-7 text-foreground" />}
-                    {social.name === 'Twitter' && <Twitter className="w-7 h-7 text-accent-magenta" />}
+                                         {social.name === 'LinkedIn' && <Linkedin className="w-7 h-7 text-accent-primary" />}
+                     {social.name === 'GitHub' && <Github className="w-7 h-7 text-foreground" />}
+                     {social.name === 'Twitter' && <Twitter className="w-7 h-7 text-accent-secondary" />}
                   </motion.a>
                 ))}
               </div>
             </div>
 
             {/* Disponibilidad */}
-            <div className="bg-gradient-to-r from-accent-blue/10 via-accent-magenta/10 to-accent-green/10 rounded-2xl p-8 border border-accent-blue/20">
-              <h4 className="text-xl font-bold text-foreground mb-4">
-                Disponibilidad
-              </h4>
-              <div className="flex items-center gap-3">
-                <div className="w-4 h-4 bg-accent-green rounded-full animate-pulse" />
-                <span className="text-accent-green font-bold">
-                  Disponible para proyectos
-                </span>
+                          <div className="bg-gradient-to-r from-accent-primary/10 via-accent-secondary/10 to-accent-success/10 rounded-2xl p-8 border border-accent-primary/20">
+                <h4 className="text-xl font-bold text-foreground mb-4">
+                  Disponibilidad
+                </h4>
+                <div className="flex items-center gap-3">
+                  <div className="w-4 h-4 bg-accent-success rounded-full animate-pulse" />
+                  <span className="text-accent-success font-bold">
+                    Disponible para proyectos
+                  </span>
+                </div>
               </div>
-            </div>
           </motion.div>
 
           {/* Formulario de contacto */}
@@ -211,7 +211,7 @@ export default function Contact() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-accent-blue to-accent-magenta hover:from-accent-magenta hover:to-accent-blue text-white font-bold py-6 rounded-2xl shadow-2xl hover:shadow-accent-blue/25 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+                  className="w-full bg-gradient-to-r from-accent-primary to-accent-secondary hover:from-accent-secondary hover:to-accent-primary text-white font-bold py-6 rounded-2xl shadow-2xl hover:shadow-accent-primary/25 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-3">
@@ -235,24 +235,24 @@ export default function Contact() {
                       exit={{ opacity: 0, y: -10 }}
                       className="flex items-center gap-4 p-6 bg-accent-green/10 border border-accent-green/20 rounded-2xl"
                     >
-                      <CheckCircle className="w-6 h-6 text-accent-green" />
-                      <span className="text-accent-green font-bold">
-                        ¡Mensaje enviado con éxito!
-                      </span>
-                    </motion.div>
-                  )}
-                  
-                  {submitStatus === 'error' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="flex items-center gap-4 p-6 bg-accent-magenta/10 border border-accent-magenta/20 rounded-2xl"
-                    >
-                      <AlertCircle className="w-6 h-6 text-accent-magenta" />
-                      <span className="text-accent-magenta font-bold">
-                        Error al enviar el mensaje
-                      </span>
+                                             <CheckCircle className="w-6 h-6 text-accent-success" />
+                       <span className="text-accent-success font-bold">
+                         ¡Mensaje enviado con éxito!
+                       </span>
+                     </motion.div>
+                   )}
+                   
+                   {submitStatus === 'error' && (
+                     <motion.div
+                       initial={{ opacity: 0, y: 10 }}
+                       animate={{ opacity: 1, y: 0 }}
+                       exit={{ opacity: 0, y: -10 }}
+                       className="flex items-center gap-4 p-6 bg-accent-danger/10 border border-accent-danger/20 rounded-2xl"
+                     >
+                       <AlertCircle className="w-6 h-6 text-accent-danger" />
+                       <span className="text-accent-danger font-bold">
+                         Error al enviar el mensaje
+                       </span>
                     </motion.div>
                   )}
                 </AnimatePresence>

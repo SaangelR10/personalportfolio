@@ -11,12 +11,17 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         "background-secondary": "var(--background-secondary)",
+        "background-tertiary": "var(--background-tertiary)",
         foreground: "var(--foreground)",
         "foreground-secondary": "var(--foreground-secondary)",
-        "accent-blue": "var(--accent-blue)",
-        "accent-magenta": "var(--accent-magenta)",
-        "accent-green": "var(--accent-green)",
+        "foreground-muted": "var(--foreground-muted)",
+        "accent-primary": "var(--accent-primary)",
+        "accent-secondary": "var(--accent-secondary)",
+        "accent-success": "var(--accent-success)",
+        "accent-warning": "var(--accent-warning)",
+        "accent-danger": "var(--accent-danger)",
         border: "var(--border)",
+        "border-light": "var(--border-light)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "-apple-system", "sans-serif"],
@@ -72,6 +77,12 @@ const config: Config = {
       },
       backdropBlur: {
         xs: "2px",
+      },
+      boxShadow: {
+        'sm': 'var(--shadow-sm)',
+        'md': 'var(--shadow-md)',
+        'lg': 'var(--shadow-lg)',
+        'xl': 'var(--shadow-xl)',
       },
     },
   },
