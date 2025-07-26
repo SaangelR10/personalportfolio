@@ -193,7 +193,7 @@ export default function Skills() {
             </div>
             <div className="text-sm text-foreground-secondary">Soft Skills</div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
