@@ -21,7 +21,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-3 px-6 py-3 bg-accent-primary/10 border border-accent-primary/20 rounded-full mb-12"
+          className="inline-flex items-center gap-3 px-6 py-3 bg-accent-primary/10 border border-accent-primary/20 rounded-full mb-16"
         >
           <Sparkles className="w-5 h-5 text-accent-primary" />
           <span className="text-sm font-semibold text-accent-primary">Disponible para proyectos</span>
@@ -32,7 +32,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-12 leading-tight"
         >
           <span className="block text-foreground mb-4">Hola, soy</span>
           <span className="block bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-success bg-clip-text text-transparent">
@@ -45,47 +45,62 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-foreground-secondary mb-16 max-w-3xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl text-foreground-secondary mb-20 max-w-3xl mx-auto leading-relaxed"
         >
           Creo experiencias digitales excepcionales con tecnologías modernas y diseño centrado en el usuario
         </motion.p>
 
-        {/* Características destacadas - Más pequeñas y estéticas */}
+        {/* Características destacadas - Con mejor espaciado y animaciones */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex justify-center items-center gap-4 mb-16"
+          className="flex flex-wrap justify-center items-center gap-6 mb-20"
         >
-          <div className="flex items-center gap-3 bg-background-secondary/40 rounded-xl px-4 py-3 border border-border">
-            <div className="w-8 h-8 bg-accent-primary/10 rounded-lg flex items-center justify-center">
-              <Star className="w-4 h-4 text-accent-primary" />
+          <motion.div 
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="flex items-center gap-4 bg-background-secondary/40 rounded-2xl px-6 py-4 border border-border shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <div className="w-10 h-10 bg-accent-primary/10 rounded-xl flex items-center justify-center">
+              <Star className="w-5 h-5 text-accent-primary" />
             </div>
             <div className="text-left">
-              <h3 className="text-sm font-bold text-foreground">Calidad Premium</h3>
+              <h3 className="text-sm font-bold text-foreground mb-1">Calidad Premium</h3>
               <p className="text-xs text-foreground-secondary">Código limpio</p>
             </div>
-          </div>
+          </motion.div>
           
-          <div className="flex items-center gap-3 bg-background-secondary/40 rounded-xl px-4 py-3 border border-border">
-            <div className="w-8 h-8 bg-accent-secondary/10 rounded-lg flex items-center justify-center">
-              <Zap className="w-4 h-4 text-accent-secondary" />
+          <motion.div 
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="flex items-center gap-4 bg-background-secondary/40 rounded-2xl px-6 py-4 border border-border shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <div className="w-10 h-10 bg-accent-secondary/10 rounded-xl flex items-center justify-center">
+              <Zap className="w-5 h-5 text-accent-secondary" />
             </div>
             <div className="text-left">
-              <h3 className="text-sm font-bold text-foreground">Rendimiento</h3>
+              <h3 className="text-sm font-bold text-foreground mb-1">Rendimiento</h3>
               <p className="text-xs text-foreground-secondary">Aplicaciones rápidas</p>
             </div>
-          </div>
+          </motion.div>
           
-          <div className="flex items-center gap-3 bg-background-secondary/40 rounded-xl px-4 py-3 border border-border">
-            <div className="w-8 h-8 bg-accent-success/10 rounded-lg flex items-center justify-center">
-              <Target className="w-4 h-4 text-accent-success" />
+          <motion.div 
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="flex items-center gap-4 bg-background-secondary/40 rounded-2xl px-6 py-4 border border-border shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <div className="w-10 h-10 bg-accent-success/10 rounded-xl flex items-center justify-center">
+              <Target className="w-5 h-5 text-accent-success" />
             </div>
             <div className="text-left">
-              <h3 className="text-sm font-bold text-foreground">Enfoque UX</h3>
+              <h3 className="text-sm font-bold text-foreground mb-1">Enfoque UX</h3>
               <p className="text-xs text-foreground-secondary">Experiencias intuitivas</p>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Botones CTA mejorados */}
@@ -93,7 +108,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20"
         >
           <Button 
             size="lg" 
