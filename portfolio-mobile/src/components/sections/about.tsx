@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Mail, MapPin, Calendar, User, Code, Award, Clock } from 'lucide-react';
@@ -15,32 +15,55 @@ export default function About() {
     { value: 100, suffix: '%', label: 'Satisfacción', color: 'text-accent-primary' },
   ], []);
 
-  // Animaciones de contador para cada estadística - creadas individualmente
+  // Estado para los contadores animados
   const [counts, setCounts] = useState([0, 0, 0, 0]);
-  const control1 = useAnimation();
-  const control2 = useAnimation();
-  const control3 = useAnimation();
-  const control4 = useAnimation();
-  const controls = [control1, control2, control3, control4];
-  const hasAnimated = useRef(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
+  // Animación de contador usando setInterval
   useEffect(() => {
-    function handleScroll() {
-      const section = document.getElementById('about-exp');
-      if (section && !hasAnimated.current) {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          stats.forEach((stat, i) => {
-            controls[i].start({ count: stat.value });
-          });
-          hasAnimated.current = true;
-        }
-      }
+    if (hasAnimated) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            
+            // Animar cada contador
+            stats.forEach((stat, index) => {
+              const duration = 1500; // 1.5 segundos
+              const steps = 60; // 60 pasos
+              const increment = stat.value / steps;
+              const stepDuration = duration / steps;
+              
+              let currentCount = 0;
+              const timer = setInterval(() => {
+                currentCount += increment;
+                if (currentCount >= stat.value) {
+                  currentCount = stat.value;
+                  clearInterval(timer);
+                }
+                
+                setCounts(prev => {
+                  const newCounts = [...prev];
+                  newCounts[index] = Math.round(currentCount);
+                  return newCounts;
+                });
+              }, stepDuration);
+            });
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [stats, controls]);
+
+    return () => observer.disconnect();
+  }, [hasAnimated, stats]);
 
   return (
     <section id="about" className="bg-background-secondary py-24 px-6">
@@ -120,6 +143,7 @@ export default function About() {
 
           {/* Estadísticas animadas minimalistas */}
           <motion.div
+            ref={sectionRef}
             id="about-exp"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -129,19 +153,9 @@ export default function About() {
           >
             {stats.map((stat, i) => (
               <div key={stat.label} className="flex flex-col items-center justify-center">
-                <motion.span
-                  initial={{ count: 0 }}
-                  animate={controls[i]}
-                  transition={{ duration: 1.5, ease: 'easeOut' }}
-                  onUpdate={latest => setCounts(prev => {
-                    const arr = [...prev];
-                    arr[i] = Math.round(latest.count);
-                    return arr;
-                  })}
-                  className={`text-4xl md:text-5xl font-extrabold ${stat.color} mb-2`}
-                >
+                <span className={`text-4xl md:text-5xl font-extrabold ${stat.color} mb-2`}>
                   {counts[i]}{stat.suffix}
-                </motion.span>
+                </span>
                 <div className="text-base md:text-lg text-foreground-secondary text-center leading-tight">
                   {stat.label}
                 </div>
@@ -149,7 +163,7 @@ export default function About() {
             ))}
           </motion.div>
 
-          {/* Experiencia resumida (sin cambios por ahora) */}
+          {/* Experiencia resumida */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
