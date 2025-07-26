@@ -125,24 +125,24 @@ export default function Hero() {
             Contactar
           </Button>
         </motion.div>
-
-        {/* Indicador de scroll elegante - Ahora mucho más abajo */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-2 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-3"
-          >
-            <span className="text-sm text-foreground-secondary font-medium">Scroll</span>
-            <ArrowDown className="w-6 h-6 text-accent-primary" />
-          </motion.div>
-        </motion.div>
       </div>
+
+      {/* Indicador de scroll elegante - SIEMPRE fijo al fondo de la ventana */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="flex flex-col items-center gap-3"
+        >
+          <span className="text-sm text-foreground-secondary font-medium">Scroll</span>
+          <ArrowDown className="w-6 h-6 text-accent-primary" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
