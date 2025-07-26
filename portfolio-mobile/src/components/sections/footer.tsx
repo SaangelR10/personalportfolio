@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
 import { ArrowUp, Heart, Code, Linkedin, Github, Twitter } from 'lucide-react';
 import { socialLinks } from '@/lib/data';
 
