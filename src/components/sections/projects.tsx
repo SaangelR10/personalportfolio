@@ -17,8 +17,8 @@ export default function Projects() {
   }, [activeCategory]);
 
   return (
-    <section id="projects" className="bg-background py-24 px-8 md:px-12">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" className="bg-background py-24 px-4 md:px-8 lg:px-16">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ export default function Projects() {
         </div>
 
         {/* Grid de proyectos premium */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-4xl mx-auto px-8 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto px-4 md:px-8 lg:px-12">
           <AnimatePresence mode="wait">
             {filteredProjects.map((project, index) => (
               <motion.div
