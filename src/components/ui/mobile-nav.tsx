@@ -1,134 +1,163 @@
 "use client";
 
-import React from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X, Sun, Moon, ChevronRight } from 'lucide-react';
 import { useAppStore } from '@/lib/store';
-import { Button } from './button';
-import { cn } from '@/lib/utils';
 
 const navigationItems = [
-  { label: 'Inicio', href: '#home' },
-  { label: 'Sobre Mí', href: '#about' },
-  { label: 'Proyectos', href: '#projects' },
-  { label: 'Habilidades', href: '#skills' },
-  { label: 'Contacto', href: '#contact' },
+  { name: 'Inicio', href: '#home' },
+  { name: 'Sobre Mí', href: '#about' },
+  { name: 'Proyectos', href: '#projects' },
+  { name: 'Habilidades', href: '#skills' },
+  { name: 'Contacto', href: '#contact' },
 ];
 
 export function MobileNav() {
-  const { isMenuOpen, toggleMenu, theme, setTheme } = useAppStore();
+  const { theme, isMenuOpen, setTheme, toggleMenu } = useAppStore();
 
-  const handleNavClick = (href: string) => {
-    toggleMenu();
+  const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+    toggleMenu();
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border ios-safe-top">
-      <div className="flex items-center justify-between px-mobile-padding py-4">
-        {/* Logo */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="text-xl font-heading font-bold text-accent-blue"
-        >
-          Portfolio
-        </motion.div>
+    <>
+      {/* Botón de menú hamburguesa */}
+      <motion.button
+        whileTap={{ scale: 0.95 }}
+        onClick={toggleMenu}
+        className="fixed top-6 right-6 z-50 w-12 h-12 bg-background-secondary/80 backdrop-blur-md border border-border rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300"
+        aria-label="Abrir menú de navegación"
+      >
+        <AnimatePresence mode="wait">
+          {isMenuOpen ? (
+            <motion.div
+              key="close"
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <X className="w-6 h-6 text-foreground" />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="menu"
+              initial={{ rotate: 90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: -90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Menu className="w-6 h-6 text-foreground" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.button>
 
-        {/* Botones de acción */}
-        <div className="flex items-center gap-2">
-          {/* Toggle de tema */}
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleTheme}
-            className="text-foreground-secondary hover:text-foreground"
-            aria-label={`Cambiar a modo ${theme === 'dark' ? 'claro' : 'oscuro'}`}
-          >
-            {theme === 'dark' ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-          </Button>
-
-          {/* Botón de menú */}
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleMenu}
-            className="text-foreground-secondary hover:text-foreground"
-            aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-          >
-            <AnimatePresence mode="wait">
-              {isMenuOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X className="h-6 w-6" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Menu className="h-6 w-6" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </Button>
-        </div>
-      </div>
-
-      {/* Menú desplegable */}
+      {/* Overlay del menú */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="bg-background-secondary border-t border-border overflow-hidden"
-          >
-            <div className="px-mobile-padding py-6 space-y-4">
-              {navigationItems.map((item, index) => (
-                <motion.div
-                  key={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+          <>
+            {/* Fondo oscuro */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+              onClick={toggleMenu}
+            />
+
+            {/* Menú lateral */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-background-secondary/95 backdrop-blur-xl border-l border-border z-50 shadow-2xl"
+            >
+              {/* Header del menú */}
+              <div className="flex items-center justify-between p-6 border-b border-border">
+                <h2 className="text-xl font-bold text-foreground">Menú</h2>
+                
+                {/* Toggle de tema */}
+                <motion.button
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                  className="w-10 h-10 bg-background rounded-lg flex items-center justify-center border border-border hover:border-accent-blue transition-colors"
+                  aria-label={`Cambiar a modo ${theme === 'dark' ? 'claro' : 'oscuro'}`}
                 >
-                  <button
-                    onClick={() => handleNavClick(item.href)}
-                    className={cn(
-                      'w-full text-left py-3 px-4 rounded-lg text-mobile-base font-medium transition-all duration-200',
-                      'text-foreground-secondary hover:text-foreground hover:bg-background',
-                      'focus:outline-none focus:ring-2 focus:ring-accent-blue focus:ring-inset',
-                      'active:bg-accent-blue/10 active:text-accent-blue'
+                  <AnimatePresence mode="wait">
+                    {theme === 'dark' ? (
+                      <motion.div
+                        key="sun"
+                        initial={{ rotate: -90, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: 90, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <Sun className="w-5 h-5 text-accent-blue" />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="moon"
+                        initial={{ rotate: 90, opacity: 0 }}
+                        animate={{ rotate: 0, opacity: 1 }}
+                        exit={{ rotate: -90, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <Moon className="w-5 h-5 text-accent-magenta" />
+                      </motion.div>
                     )}
-                  >
-                    {item.label}
-                  </button>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                  </AnimatePresence>
+                </motion.button>
+              </div>
+
+              {/* Lista de navegación */}
+              <nav className="p-6">
+                <ul className="space-y-2">
+                  {navigationItems.map((item, index) => (
+                    <motion.li
+                      key={item.name}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <motion.button
+                        whileHover={{ x: 8 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => scrollToSection(item.href)}
+                        className="w-full flex items-center justify-between p-4 rounded-xl bg-background/50 hover:bg-background/80 border border-transparent hover:border-accent-blue/30 transition-all duration-300 group"
+                      >
+                        <span className="text-foreground font-medium group-hover:text-accent-blue transition-colors">
+                          {item.name}
+                        </span>
+                        <ChevronRight className="w-5 h-5 text-foreground-secondary group-hover:text-accent-blue group-hover:translate-x-1 transition-all" />
+                      </motion.button>
+                    </motion.li>
+                  ))}
+                </ul>
+              </nav>
+
+              {/* Footer del menú */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-border">
+                <div className="text-center">
+                  <p className="text-sm text-foreground-secondary mb-2">
+                    Desarrollador Frontend
+                  </p>
+                  <p className="text-xs text-foreground-secondary">
+                    © 2025 - Código que impacta
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 }
