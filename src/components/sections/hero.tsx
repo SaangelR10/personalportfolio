@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Sparkles, Code, Globe, Smartphone, Star, Zap, Target } from 'lucide-react';
+import { ArrowDown, Sparkles, Star, Zap, Target } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -50,54 +50,41 @@ export default function Hero() {
           Creo experiencias digitales excepcionales con tecnologías modernas y diseño centrado en el usuario
         </motion.p>
 
-        {/* Iconos de tecnologías */}
+        {/* Características destacadas - Más pequeñas y estéticas */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-wrap justify-center items-center gap-4 mb-16"
+          className="flex justify-center items-center gap-4 mb-16"
         >
-          <div className="flex items-center gap-3 bg-background-secondary/60 rounded-xl px-4 py-3 border border-border">
-            <Code className="w-5 h-5 text-accent-primary" />
-            <span className="text-foreground-secondary font-medium text-sm">React</span>
-          </div>
-          <div className="flex items-center gap-3 bg-background-secondary/60 rounded-xl px-4 py-3 border border-border">
-            <Globe className="w-5 h-5 text-accent-secondary" />
-            <span className="text-foreground-secondary font-medium text-sm">Next.js</span>
-          </div>
-          <div className="flex items-center gap-3 bg-background-secondary/60 rounded-xl px-4 py-3 border border-border">
-            <Smartphone className="w-5 h-5 text-accent-success" />
-            <span className="text-foreground-secondary font-medium text-sm">Mobile</span>
-          </div>
-        </motion.div>
-
-        {/* Características destacadas */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto"
-        >
-          <div className="bg-background-secondary/40 rounded-2xl p-6 border border-border">
-            <div className="w-10 h-10 bg-accent-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Star className="w-5 h-5 text-accent-primary" />
+          <div className="flex items-center gap-3 bg-background-secondary/40 rounded-xl px-4 py-3 border border-border">
+            <div className="w-8 h-8 bg-accent-primary/10 rounded-lg flex items-center justify-center">
+              <Star className="w-4 h-4 text-accent-primary" />
             </div>
-            <h3 className="text-base font-bold text-foreground mb-2">Calidad Premium</h3>
-            <p className="text-sm text-foreground-secondary">Código limpio y mantenible</p>
-          </div>
-          <div className="bg-background-secondary/40 rounded-2xl p-6 border border-border">
-            <div className="w-10 h-10 bg-accent-secondary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Zap className="w-5 h-5 text-accent-secondary" />
+            <div className="text-left">
+              <h3 className="text-sm font-bold text-foreground">Calidad Premium</h3>
+              <p className="text-xs text-foreground-secondary">Código limpio</p>
             </div>
-            <h3 className="text-base font-bold text-foreground mb-2">Rendimiento</h3>
-            <p className="text-sm text-foreground-secondary">Aplicaciones rápidas y eficientes</p>
           </div>
-          <div className="bg-background-secondary/40 rounded-2xl p-6 border border-border">
-            <div className="w-10 h-10 bg-accent-success/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Target className="w-5 h-5 text-accent-success" />
+          
+          <div className="flex items-center gap-3 bg-background-secondary/40 rounded-xl px-4 py-3 border border-border">
+            <div className="w-8 h-8 bg-accent-secondary/10 rounded-lg flex items-center justify-center">
+              <Zap className="w-4 h-4 text-accent-secondary" />
             </div>
-            <h3 className="text-base font-bold text-foreground mb-2">Enfoque UX</h3>
-            <p className="text-sm text-foreground-secondary">Experiencias intuitivas</p>
+            <div className="text-left">
+              <h3 className="text-sm font-bold text-foreground">Rendimiento</h3>
+              <p className="text-xs text-foreground-secondary">Aplicaciones rápidas</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-3 bg-background-secondary/40 rounded-xl px-4 py-3 border border-border">
+            <div className="w-8 h-8 bg-accent-success/10 rounded-lg flex items-center justify-center">
+              <Target className="w-4 h-4 text-accent-success" />
+            </div>
+            <div className="text-left">
+              <h3 className="text-sm font-bold text-foreground">Enfoque UX</h3>
+              <p className="text-xs text-foreground-secondary">Experiencias intuitivas</p>
+            </div>
           </div>
         </motion.div>
 
