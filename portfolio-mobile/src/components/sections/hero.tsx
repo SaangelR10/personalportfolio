@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Sparkles, Star, Zap, Target } from 'lucide-react';
+import { ArrowDown, Sparkles, Star, Zap, Target, FolderOpen, Mail } from 'lucide-react';
 
 export default function Hero() {
   const [showScroll, setShowScroll] = useState(true);
@@ -19,6 +19,14 @@ export default function Hero() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Scroll suave a la sección
+  const handleScrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
     <section id="home" className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden">
@@ -118,25 +126,29 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Botones CTA mejorados - Sin margen inferior extra */}
+        {/* Botones CTA mejorados - SIEMPRE uno al lado del otro y funcionales */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          className="flex flex-row gap-4 justify-center items-center w-full max-w-md mx-auto mb-0"
         >
-          <Button 
-            size="lg" 
-            className="w-full sm:w-auto bg-gradient-to-r from-accent-primary to-accent-secondary hover:from-accent-secondary hover:to-accent-primary text-white font-bold px-10 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-base"
+          <Button
+            size="lg"
+            className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-accent-primary to-accent-secondary hover:from-accent-secondary hover:to-accent-primary text-white font-bold px-6 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-base focus:outline-none focus:ring-2 focus:ring-accent-primary/40"
+            onClick={() => handleScrollTo('projects')}
           >
+            <FolderOpen className="w-5 h-5" />
             Ver Proyectos
           </Button>
-          
-          <Button 
-            variant="outline" 
+
+          <Button
+            variant="outline"
             size="lg"
-            className="w-full sm:w-auto border-2 border-accent-success/30 text-accent-success hover:bg-accent-success/10 font-bold px-10 py-4 rounded-2xl transition-all duration-300 text-base"
+            className="flex-1 flex items-center justify-center gap-2 border-2 border-accent-success/30 text-accent-success hover:bg-accent-success/10 font-bold px-6 py-4 rounded-2xl transition-all duration-300 text-base focus:outline-none focus:ring-2 focus:ring-accent-success/30"
+            onClick={() => handleScrollTo('contact')}
           >
+            <Mail className="w-5 h-5" />
             Contactar
           </Button>
         </motion.div>
