@@ -180,66 +180,135 @@ export default function About() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-sm md:max-w-2xl mx-auto px-8 md:px-12 justify-items-center">
+            <div className="flex flex-col items-center gap-4 max-w-sm md:max-w-2xl mx-auto px-8 md:px-12">
               <motion.div 
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
                 whileHover={{ scale: 1.02, y: -2 }}
-                transition={{ duration: 0.2 }}
                 className="bg-gradient-to-br from-accent-primary/8 to-accent-primary/3 rounded-xl p-4 border border-accent-primary/15 hover:border-accent-primary/30 transition-all duration-300 text-center w-full max-w-xs"
               >
                 <div className="flex flex-col items-center gap-2 mb-3">
-                  <div className="w-10 h-10 bg-accent-primary/15 rounded-lg flex items-center justify-center">
+                  <motion.div 
+                    whileHover={{ rotate: 5, scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                    className="w-10 h-10 bg-accent-primary/15 rounded-lg flex items-center justify-center"
+                  >
                     <Code className="w-5 h-5 text-accent-primary" />
-                  </div>
+                  </motion.div>
                   <div>
                     <h4 className="text-sm font-semibold text-foreground">Frontend Developer</h4>
                     <p className="text-xs text-accent-primary/80 font-medium">Especialista</p>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-1 justify-center">
-                  <span className="px-2 py-0.5 bg-blue-500/10 text-blue-500 text-xs font-medium rounded-md">React</span>
-                  <span className="px-2 py-0.5 bg-purple-500/10 text-purple-500 text-xs font-medium rounded-md">Next.js</span>
-                  <span className="px-2 py-0.5 bg-cyan-500/10 text-cyan-500 text-xs font-medium rounded-md">TypeScript</span>
+                  <motion.span 
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    className="px-2 py-0.5 bg-blue-500/10 text-blue-500 text-xs font-medium rounded-md"
+                  >
+                    React
+                  </motion.span>
+                  <motion.span 
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    className="px-2 py-0.5 bg-purple-500/10 text-purple-500 text-xs font-medium rounded-md"
+                  >
+                    Next.js
+                  </motion.span>
+                  <motion.span 
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    className="px-2 py-0.5 bg-cyan-500/10 text-cyan-500 text-xs font-medium rounded-md"
+                  >
+                    TypeScript
+                  </motion.span>
                 </div>
               </motion.div>
               
               <motion.div 
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
                 whileHover={{ scale: 1.02, y: -2 }}
-                transition={{ duration: 0.2 }}
                 className="bg-gradient-to-br from-accent-secondary/8 to-accent-secondary/3 rounded-xl p-4 border border-accent-secondary/15 hover:border-accent-secondary/30 transition-all duration-300 text-center w-full max-w-xs"
               >
                 <div className="flex flex-col items-center gap-2 mb-3">
-                  <div className="w-10 h-10 bg-accent-secondary/15 rounded-lg flex items-center justify-center">
+                  <motion.div 
+                    whileHover={{ rotate: 5, scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                    className="w-10 h-10 bg-accent-secondary/15 rounded-lg flex items-center justify-center"
+                  >
                     <User className="w-5 h-5 text-accent-secondary" />
-                  </div>
+                  </motion.div>
                   <div>
                     <h4 className="text-sm font-semibold text-foreground">UI/UX Designer</h4>
                     <p className="text-xs text-accent-secondary/80 font-medium">Creativo</p>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-1 justify-center">
-                  <span className="px-2 py-0.5 bg-pink-500/10 text-pink-500 text-xs font-medium rounded-md">Figma</span>
-                  <span className="px-2 py-0.5 bg-orange-500/10 text-orange-500 text-xs font-medium rounded-md">Adobe XD</span>
-                  <span className="px-2 py-0.5 bg-indigo-500/10 text-indigo-500 text-xs font-medium rounded-md">Prototyping</span>
+                  <motion.span 
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    className="px-2 py-0.5 bg-pink-500/10 text-pink-500 text-xs font-medium rounded-md"
+                  >
+                    Figma
+                  </motion.span>
+                  <motion.span 
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    className="px-2 py-0.5 bg-orange-500/10 text-orange-500 text-xs font-medium rounded-md"
+                  >
+                    Adobe XD
+                  </motion.span>
+                  <motion.span 
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    className="px-2 py-0.5 bg-indigo-500/10 text-indigo-500 text-xs font-medium rounded-md"
+                  >
+                    Prototyping
+                  </motion.span>
                 </div>
               </motion.div>
               
               <motion.div 
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
                 whileHover={{ scale: 1.02, y: -2 }}
-                transition={{ duration: 0.2 }}
                 className="bg-gradient-to-br from-accent-success/8 to-accent-success/3 rounded-xl p-4 border border-accent-success/15 hover:border-accent-success/30 transition-all duration-300 text-center w-full max-w-xs"
               >
                 <div className="flex flex-col items-center gap-2 mb-3">
-                  <div className="w-10 h-10 bg-accent-success/15 rounded-lg flex items-center justify-center">
+                  <motion.div 
+                    whileHover={{ rotate: 5, scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                    className="w-10 h-10 bg-accent-success/15 rounded-lg flex items-center justify-center"
+                  >
                     <Clock className="w-5 h-5 text-accent-success" />
-                  </div>
+                  </motion.div>
                   <div>
                     <h4 className="text-sm font-semibold text-foreground">Mobile Developer</h4>
                     <p className="text-xs text-accent-success/80 font-medium">Nativo</p>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-1 justify-center">
-                  <span className="px-2 py-0.5 bg-teal-500/10 text-teal-500 text-xs font-medium rounded-md">React Native</span>
-                  <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-500 text-xs font-medium rounded-md">Flutter</span>
+                  <motion.span 
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    className="px-2 py-0.5 bg-teal-500/10 text-teal-500 text-xs font-medium rounded-md"
+                  >
+                    React Native
+                  </motion.span>
+                  <motion.span 
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    className="px-2 py-0.5 bg-emerald-500/10 text-emerald-500 text-xs font-medium rounded-md"
+                  >
+                    Flutter
+                  </motion.span>
                 </div>
               </motion.div>
             </div>
