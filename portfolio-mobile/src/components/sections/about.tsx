@@ -1,11 +1,34 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Mail, MapPin, Calendar, User, Code, Award, Clock } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 
 export default function About() {
+  // Animación de contador para años de experiencia
+  const [exp, setExp] = useState(0);
+  const targetExp = 3;
+  const controls = useAnimation();
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      const section = document.getElementById('about-exp');
+      if (section && !hasAnimated.current) {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          controls.start({ count: targetExp });
+          hasAnimated.current = true;
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [controls]);
+
   return (
     <section id="about" className="bg-background-secondary py-24 px-6">
       <div className="max-w-5xl mx-auto">
@@ -60,66 +83,50 @@ export default function About() {
             </p>
           </motion.div>
 
-          {/* Información de contacto */}
+          {/* Información de contacto - badges minimalistas */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center px-2"
           >
-            <div className="bg-background/50 rounded-2xl p-6 border border-border-light text-center">
-              <div className="w-12 h-12 bg-accent-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-6 h-6 text-accent-primary" />
-              </div>
-              <h4 className="font-bold text-foreground mb-2">Email</h4>
-              <p className="text-sm text-foreground-secondary">{personalInfo.email}</p>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border-light text-foreground text-sm min-w-[180px]">
+              <Mail className="w-5 h-5 text-accent-primary" />
+              <span className="truncate">{personalInfo.email}</span>
             </div>
-
-            <div className="bg-background/50 rounded-2xl p-6 border border-border-light text-center">
-              <div className="w-12 h-12 bg-accent-secondary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <MapPin className="w-6 h-6 text-accent-secondary" />
-              </div>
-              <h4 className="font-bold text-foreground mb-2">Ubicación</h4>
-              <p className="text-sm text-foreground-secondary">{personalInfo.location}</p>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border-light text-foreground text-sm min-w-[140px]">
+              <MapPin className="w-5 h-5 text-accent-secondary" />
+              <span>{personalInfo.location}</span>
             </div>
-
-            <div className="bg-background/50 rounded-2xl p-6 border border-border-light text-center">
-              <div className="w-12 h-12 bg-accent-success/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Calendar className="w-6 h-6 text-accent-success" />
-              </div>
-              <h4 className="font-bold text-foreground mb-2">Estado</h4>
-              <p className="text-sm text-foreground-secondary">Disponible</p>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border-light text-foreground text-sm min-w-[120px]">
+              <Calendar className="w-5 h-5 text-accent-success" />
+              <span>Disponible</span>
             </div>
           </motion.div>
 
-          {/* Estadísticas */}
+          {/* Estadística de experiencia animada */}
           <motion.div
+            id="about-exp"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            className="flex flex-col items-center justify-center"
           >
-            <div className="bg-background/50 rounded-2xl p-6 border border-border-light text-center">
-              <div className="text-2xl font-bold text-accent-primary mb-2">3+</div>
-              <div className="text-sm text-foreground-secondary">Años de Experiencia</div>
-            </div>
-            <div className="bg-background/50 rounded-2xl p-6 border border-border-light text-center">
-              <div className="text-2xl font-bold text-accent-secondary mb-2">20+</div>
-              <div className="text-sm text-foreground-secondary">Proyectos Completados</div>
-            </div>
-            <div className="bg-background/50 rounded-2xl p-6 border border-border-light text-center">
-              <div className="text-2xl font-bold text-accent-success mb-2">15+</div>
-              <div className="text-sm text-foreground-secondary">Tecnologías Dominadas</div>
-            </div>
-            <div className="bg-background/50 rounded-2xl p-6 border border-border-light text-center">
-              <div className="text-2xl font-bold text-accent-primary mb-2">100%</div>
-              <div className="text-sm text-foreground-secondary">Satisfacción</div>
-            </div>
+            <motion.span
+              initial={{ count: 0 }}
+              animate={controls}
+              transition={{ duration: 1.5, ease: 'easeOut' }}
+              onUpdate={latest => setExp(Math.round(latest.count))}
+              className="text-5xl font-extrabold text-accent-primary mb-2"
+            >
+              {exp}+
+            </motion.span>
+            <div className="text-lg text-foreground-secondary">Años de Experiencia</div>
           </motion.div>
 
-          {/* Experiencia resumida */}
+          {/* Experiencia resumida (sin cambios por ahora) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
