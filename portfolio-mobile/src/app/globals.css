@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+:root {
+  /* Paleta de colores del portafolio */
+  --background: #121212;
+  --background-secondary: #1A1A1A;
+  --foreground: #FFFFFF;
+  --foreground-secondary: #D3D3D3;
+  --accent-blue: #00DDEB;
+  --accent-magenta: #FF007A;
+  --accent-green: #00FF7F;
+  --border: #2A2A2A;
+  
+  /* Fuentes */
+  --font-inter: var(--font-inter);
+  --font-poppins: var(--font-poppins);
+  
+  /* Espaciado móvil */
+  --mobile-padding: 16px;
+  --mobile-margin: 24px;
+  --touch-target: 48px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-magenta: var(--accent-magenta);
+  --color-accent-green: var(--accent-green);
+  --color-border: var(--border);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-poppins);
+}
+
+/* Configuración para iOS Safari */
+@supports (-webkit-touch-callout: none) {
+  :root {
+    /* Optimizaciones específicas para iOS */
+    --safe-area-inset-top: env(safe-area-inset-top);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    --safe-area-inset-left: env(safe-area-inset-left);
+    --safe-area-inset-right: env(safe-area-inset-right);
+  }
+}
+
+/* Configuración para Android Chrome */
+@supports not (-webkit-touch-callout: none) {
+  :root {
+    /* Optimizaciones específicas para Android */
+    --safe-area-inset-top: 0px;
+    --safe-area-inset-bottom: 0px;
+    --safe-area-inset-left: 0px;
+    --safe-area-inset-right: 0px;
+  }
+}
+
+/* Estilos base */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+  padding-top: var(--safe-area-inset-top);
+  padding-bottom: var(--safe-area-inset-bottom);
+  padding-left: var(--safe-area-inset-left);
+  padding-right: var(--safe-area-inset-right);
+}
+
+/* Tipografía */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Enlaces */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Botones táctiles */
+button, [role="button"] {
+  min-height: var(--touch-target);
+  min-width: var(--touch-target);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-blue);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-magenta);
+}
+
+/* Selección de texto */
+::selection {
+  background: var(--accent-blue);
+  color: var(--background);
+}
+
+/* Focus visible para accesibilidad */
+:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+/* Animaciones optimizadas para móvil */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .animate-scale {
+    animation: scale 0.2s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Utilidades para iOS */
+.ios-safe-top {
+  padding-top: var(--safe-area-inset-top);
+}
+
+.ios-safe-bottom {
+  padding-bottom: var(--safe-area-inset-bottom);
+}
+
+/* Utilidades para Android */
+.android-optimized {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
