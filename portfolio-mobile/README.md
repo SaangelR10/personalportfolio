@@ -85,7 +85,7 @@ portfolio-mobile/
 
 1. **Clonar el repositorio**
 ```bash
-git clone https://github.com/tu-usuario/portfolio-mobile.git
+git clone https://github.com/SaangelR10/personalportfolio.git
 cd portfolio-mobile
 ```
 
@@ -245,7 +245,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 - **Email**: tu-email@ejemplo.com
 - **LinkedIn**: [Tu Perfil](https://linkedin.com/in/tu-perfil)
-- **GitHub**: [@tu-usuario](https://github.com/tu-usuario)
+- **GitHub**: [@SaangelR10](https://github.com/SaangelR10)
 - **Portfolio**: [tu-portfolio.vercel.app](https://tu-portfolio.vercel.app)
 
 ---
