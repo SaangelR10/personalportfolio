@@ -38,7 +38,7 @@ export default function Hero() {
       </div>
 
       {/* Contenido principal - Subido desde arriba */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 pt-32 pb-[120px] md:pb-56">
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 pt-32 pb-24 md:pb-32">
         {/* Badge de estado */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -66,7 +66,7 @@ export default function About() {
   }, [hasAnimated, stats]);
 
   return (
-    <section id="about" className="bg-background-secondary py-24 px-6">
+    <section id="about" className="bg-background-secondary py-20 px-6">
       <div className="max-w-5xl mx-auto">
         {/* Header elegante */}
         <motion.div
@@ -86,7 +86,7 @@ export default function About() {
         </motion.div>
 
         {/* Contenido principal */}
-        <div className="space-y-16">
+        <div className="space-y-20">
           {/* Información personal */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -149,7 +149,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto mb-16"
           >
             {stats.map((stat, i) => (
               <div key={stat.label} className="flex flex-col items-center justify-center">
@@ -163,13 +163,16 @@ export default function About() {
             ))}
           </motion.div>
 
+          {/* Espaciador explícito entre estadísticas y experiencia */}
+          <div className="h-20 md:h-32"></div>
+
           {/* Experiencia rediseñada */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-32 -mx-6 md:mx-0"
+            className="mt-40 -mx-6 md:mx-0"
           >
             <div className="text-center mb-12 px-6 md:px-0">
               <h3 className="text-3xl font-bold text-foreground mb-4">
