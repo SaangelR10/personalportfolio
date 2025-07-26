@@ -169,7 +169,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-32 px-4"
+            className="mt-32"
           >
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold text-foreground mb-4">
@@ -180,7 +180,7 @@ export default function About() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto px-8 md:px-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-sm md:max-w-2xl mx-auto px-8 md:px-12">
               <motion.div 
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.2 }}
