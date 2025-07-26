@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
-import { Download, Mail, MapPin, Calendar, User, Code, Award, Clock } from 'lucide-react';
+import { Download, Mail, MapPin, Calendar, User, Code, Clock } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 
 export default function About() {

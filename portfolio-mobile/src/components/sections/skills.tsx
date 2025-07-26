@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { skills } from '@/lib/data';
-import { Code, Server, Wrench, Lightbulb, React, TypeScript, Next, Node, Database, Git, Docker, Figma } from 'lucide-react';
+import { Code, Server, Database, GitBranch, Box, PenTool, Figma, Wrench, Lightbulb } from 'lucide-react';
 
 const skillCategories = [
   { id: 'frontend', name: 'Frontend', icon: Code },
@@ -19,19 +19,31 @@ export default function Skills() {
     return skills.filter(skill => skill.category === category);
   };
 
-  const getSkillIcon = (skillName: string) => {
-    const iconMap: { [key: string]: any } = {
-      'React': React,
-      'TypeScript': TypeScript,
-      'Next.js': Next,
-      'Node.js': Node,
+  const getSkillIcon = (skillName: string): React.ElementType => {
+    const iconMap: Record<string, React.ElementType> = {
+      'React': Code,
+      'TypeScript': Code,
+      'Next.js': Code,
+      'Node.js': Server,
       'MongoDB': Database,
       'PostgreSQL': Database,
-      'Git': Git,
-      'Docker': Docker,
+      'Git': GitBranch,
+      'Docker': Box,
       'Figma': Figma,
+      'HTML': Code,
+      'CSS': Code,
+      'JavaScript': Code,
+      'Express': Server,
+      'Prisma': Database,
+      'Redux': Code,
+      'Jest': PenTool,
+      'Cypress': PenTool,
+      'Photoshop': PenTool,
+      'Illustrator': PenTool,
+      'Scrum': Lightbulb,
+      'Comunicación': Lightbulb,
+      'Liderazgo': Lightbulb,
     };
-    
     return iconMap[skillName] || Code;
   };
 
