@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Download, Mail, MapPin, Calendar, ExternalLink } from 'lucide-react';
+import { Download, Mail, MapPin, Calendar } from 'lucide-react';
 import { personalInfo, timeline } from '@/lib/data';
 
 export default function About() {

@@ -65,68 +65,246 @@ export const projects: Project[] = [
 
 export const skills: Skill[] = [
   // Frontend
-  { name: 'React', icon: 'react', level: 95, category: 'frontend' },
-  { name: 'Next.js', icon: 'nextjs', level: 90, category: 'frontend' },
-  { name: 'TypeScript', icon: 'typescript', level: 88, category: 'frontend' },
-  { name: 'Tailwind CSS', icon: 'tailwind', level: 92, category: 'frontend' },
-  { name: 'Vue.js', icon: 'vue', level: 85, category: 'frontend' },
-  { name: 'React Native', icon: 'react-native', level: 80, category: 'frontend' },
+  { 
+    id: 'react',
+    name: 'React', 
+    icon: 'react', 
+    level: 95, 
+    category: 'frontend',
+    description: 'Desarrollo de interfaces de usuario interactivas y componentes reutilizables'
+  },
+  { 
+    id: 'nextjs',
+    name: 'Next.js', 
+    icon: 'nextjs', 
+    level: 90, 
+    category: 'frontend',
+    description: 'Framework full-stack con SSR/SSG para aplicaciones web modernas'
+  },
+  { 
+    id: 'typescript',
+    name: 'TypeScript', 
+    icon: 'typescript', 
+    level: 88, 
+    category: 'frontend',
+    description: 'Tipado estático para JavaScript con mejor desarrollo y mantenimiento'
+  },
+  { 
+    id: 'tailwind',
+    name: 'Tailwind CSS', 
+    icon: 'tailwind', 
+    level: 92, 
+    category: 'frontend',
+    description: 'Framework CSS utility-first para diseño rápido y responsive'
+  },
+  { 
+    id: 'vue',
+    name: 'Vue.js', 
+    icon: 'vue', 
+    level: 85, 
+    category: 'frontend',
+    description: 'Framework progresivo para construir interfaces de usuario'
+  },
+  { 
+    id: 'react-native',
+    name: 'React Native', 
+    icon: 'react-native', 
+    level: 80, 
+    category: 'frontend',
+    description: 'Desarrollo de aplicaciones móviles nativas con React'
+  },
   
   // Backend
-  { name: 'Node.js', icon: 'nodejs', level: 85, category: 'backend' },
-  { name: 'Express', icon: 'express', level: 82, category: 'backend' },
-  { name: 'MongoDB', icon: 'mongodb', level: 78, category: 'backend' },
-  { name: 'PostgreSQL', icon: 'postgresql', level: 75, category: 'backend' },
-  { name: 'Firebase', icon: 'firebase', level: 80, category: 'backend' },
-  { name: 'AWS', icon: 'aws', level: 70, category: 'backend' },
+  { 
+    id: 'nodejs',
+    name: 'Node.js', 
+    icon: 'nodejs', 
+    level: 85, 
+    category: 'backend',
+    description: 'Runtime de JavaScript para desarrollo backend y APIs'
+  },
+  { 
+    id: 'express',
+    name: 'Express', 
+    icon: 'express', 
+    level: 82, 
+    category: 'backend',
+    description: 'Framework web minimalista y flexible para Node.js'
+  },
+  { 
+    id: 'mongodb',
+    name: 'MongoDB', 
+    icon: 'mongodb', 
+    level: 78, 
+    category: 'backend',
+    description: 'Base de datos NoSQL orientada a documentos'
+  },
+  { 
+    id: 'postgresql',
+    name: 'PostgreSQL', 
+    icon: 'postgresql', 
+    level: 75, 
+    category: 'backend',
+    description: 'Sistema de gestión de bases de datos relacional'
+  },
+  { 
+    id: 'firebase',
+    name: 'Firebase', 
+    icon: 'firebase', 
+    level: 80, 
+    category: 'backend',
+    description: 'Plataforma de desarrollo de aplicaciones móviles y web'
+  },
+  { 
+    id: 'aws',
+    name: 'AWS', 
+    icon: 'aws', 
+    level: 70, 
+    category: 'backend',
+    description: 'Servicios en la nube para infraestructura y desarrollo'
+  },
   
   // Tools
-  { name: 'Git', icon: 'git', level: 90, category: 'tools' },
-  { name: 'Docker', icon: 'docker', level: 75, category: 'tools' },
-  { name: 'Figma', icon: 'figma', level: 85, category: 'tools' },
-  { name: 'Jest', icon: 'jest', level: 80, category: 'tools' },
-  { name: 'Webpack', icon: 'webpack', level: 75, category: 'tools' },
-  { name: 'Vite', icon: 'vite', level: 85, category: 'tools' },
+  { 
+    id: 'git',
+    name: 'Git', 
+    icon: 'git', 
+    level: 90, 
+    category: 'tools',
+    description: 'Sistema de control de versiones distribuido'
+  },
+  { 
+    id: 'docker',
+    name: 'Docker', 
+    icon: 'docker', 
+    level: 75, 
+    category: 'tools',
+    description: 'Plataforma de contenedores para desarrollo y despliegue'
+  },
+  { 
+    id: 'figma',
+    name: 'Figma', 
+    icon: 'figma', 
+    level: 85, 
+    category: 'tools',
+    description: 'Herramienta de diseño colaborativo para interfaces'
+  },
+  { 
+    id: 'jest',
+    name: 'Jest', 
+    icon: 'jest', 
+    level: 80, 
+    category: 'tools',
+    description: 'Framework de testing para JavaScript'
+  },
+  { 
+    id: 'webpack',
+    name: 'Webpack', 
+    icon: 'webpack', 
+    level: 75, 
+    category: 'tools',
+    description: 'Empaquetador de módulos para aplicaciones JavaScript'
+  },
+  { 
+    id: 'vite',
+    name: 'Vite', 
+    icon: 'vite', 
+    level: 85, 
+    category: 'tools',
+    description: 'Herramienta de construcción frontend moderna y rápida'
+  },
   
   // Soft Skills
-  { name: 'Trabajo en Equipo', icon: 'team', level: 95, category: 'soft' },
-  { name: 'Comunicación', icon: 'communication', level: 90, category: 'soft' },
-  { name: 'Resolución de Problemas', icon: 'problem-solving', level: 88, category: 'soft' },
-  { name: 'Gestión de Proyectos', icon: 'project-management', level: 82, category: 'soft' },
-  { name: 'Aprendizaje Continuo', icon: 'learning', level: 95, category: 'soft' },
-  { name: 'Pensamiento Crítico', icon: 'critical-thinking', level: 85, category: 'soft' }
+  { 
+    id: 'teamwork',
+    name: 'Trabajo en Equipo', 
+    icon: 'team', 
+    level: 95, 
+    category: 'soft',
+    description: 'Colaboración efectiva en equipos multidisciplinarios'
+  },
+  { 
+    id: 'communication',
+    name: 'Comunicación', 
+    icon: 'communication', 
+    level: 90, 
+    category: 'soft',
+    description: 'Comunicación clara y efectiva con stakeholders'
+  },
+  { 
+    id: 'problem-solving',
+    name: 'Resolución de Problemas', 
+    icon: 'problem-solving', 
+    level: 88, 
+    category: 'soft',
+    description: 'Análisis y solución de problemas técnicos complejos'
+  },
+  { 
+    id: 'project-management',
+    name: 'Gestión de Proyectos', 
+    icon: 'project-management', 
+    level: 82, 
+    category: 'soft',
+    description: 'Planificación y ejecución de proyectos de desarrollo'
+  },
+  { 
+    id: 'learning',
+    name: 'Aprendizaje Continuo', 
+    icon: 'learning', 
+    level: 95, 
+    category: 'soft',
+    description: 'Actualización constante en nuevas tecnologías'
+  },
+  { 
+    id: 'critical-thinking',
+    name: 'Pensamiento Crítico', 
+    icon: 'critical-thinking', 
+    level: 85, 
+    category: 'soft',
+    description: 'Evaluación analítica de soluciones y alternativas'
+  }
 ];
 
 export const timeline: TimelineItem[] = [
   {
+    id: '1',
     year: '2024',
     title: 'Senior Frontend Developer',
     description: 'Liderando el desarrollo de aplicaciones móviles y web con tecnologías modernas como Next.js 15 y React Native.',
-    company: 'TechCorp'
+    company: 'TechCorp',
+    technologies: ['Next.js 15', 'React Native', 'TypeScript', 'Tailwind CSS']
   },
   {
+    id: '2',
     year: '2023',
     title: 'Full Stack Developer',
     description: 'Desarrollando aplicaciones web completas con React, Node.js y bases de datos NoSQL.',
-    company: 'StartupXYZ'
+    company: 'StartupXYZ',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Express']
   },
   {
+    id: '3',
     year: '2022',
     title: 'Frontend Developer',
     description: 'Especializado en React y TypeScript, creando interfaces de usuario modernas y responsivas.',
-    company: 'DigitalAgency'
+    company: 'DigitalAgency',
+    technologies: ['React', 'TypeScript', 'CSS3', 'JavaScript']
   },
   {
+    id: '4',
     year: '2021',
     title: 'Junior Developer',
     description: 'Iniciando carrera en desarrollo web con HTML, CSS, JavaScript y frameworks modernos.',
-    company: 'WebStudio'
+    company: 'WebStudio',
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'jQuery']
   },
   {
+    id: '5',
     year: '2020',
     title: 'Bootcamp Graduado',
     description: 'Completé un bootcamp intensivo de desarrollo web full-stack con tecnologías modernas.',
-    company: 'CodeAcademy'
+    company: 'CodeAcademy',
+    technologies: ['JavaScript', 'React', 'Node.js', 'MongoDB']
   }
 ];
 

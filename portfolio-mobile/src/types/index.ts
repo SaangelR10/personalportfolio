@@ -10,17 +10,21 @@ export interface Project {
 }
 
 export interface Skill {
+  id: string;
   name: string;
   icon: string;
   level: number;
   category: 'frontend' | 'backend' | 'tools' | 'soft';
+  description: string;
 }
 
 export interface TimelineItem {
+  id: string;
   year: string;
   title: string;
   description: string;
   company?: string;
+  technologies?: string[];
 }
 
 export interface SocialLink {
