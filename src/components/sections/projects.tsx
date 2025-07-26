@@ -53,16 +53,16 @@ export default function Projects() {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, scale: 0.8, rotateZ: -6 }}
-                animate={{ opacity: 1, scale: 1, rotateZ: 0 }}
-                exit={{ opacity: 0, scale: 0.8, rotateZ: -6 }}
-                transition={{ duration: 0.7, delay: index * 0.13, ease: "backOut" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                 whileHover={{ 
-                  scale: 1.09, 
-                  rotateZ: 3,
-                  boxShadow: "0 30px 80px rgba(59,130,246,0.18)"
+                  scale: 1.02, 
+                  y: -6,
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
                 }}
-                className="bg-gradient-to-br from-background-secondary/90 to-background-secondary/70 rounded-3xl border border-border-light/50 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group backdrop-blur-sm"
+                className="bg-gradient-to-br from-background-secondary/90 to-background-secondary/70 rounded-3xl border border-border-light/50 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group backdrop-blur-sm"
               >
                 {/* Header del proyecto */}
                 <div className="p-8 border-b border-border-light/30">
