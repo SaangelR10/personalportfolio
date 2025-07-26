@@ -180,15 +180,15 @@ export default function About() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-sm md:max-w-2xl mx-auto px-8 md:px-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-sm md:max-w-2xl mx-auto px-8 md:px-12 justify-items-center">
               <motion.div 
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.2 }}
-                className="bg-gradient-to-br from-accent-primary/8 to-accent-primary/3 rounded-xl p-4 border border-accent-primary/15 hover:border-accent-primary/30 transition-all duration-300 text-center"
+                className="bg-gradient-to-br from-accent-primary/8 to-accent-primary/3 rounded-xl p-4 border border-accent-primary/15 hover:border-accent-primary/30 transition-all duration-300 text-center w-full max-w-xs"
               >
                 <div className="flex flex-col items-center gap-2 mb-3">
-                  <div className="w-8 h-8 bg-accent-primary/15 rounded-lg flex items-center justify-center">
-                    <Code className="w-4 h-4 text-accent-primary" />
+                  <div className="w-10 h-10 bg-accent-primary/15 rounded-lg flex items-center justify-center">
+                    <Code className="w-5 h-5 text-accent-primary" />
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-foreground">Frontend Developer</h4>
@@ -196,20 +196,20 @@ export default function About() {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-1 justify-center">
-                  <span className="px-2 py-0.5 bg-accent-primary/8 text-accent-primary text-xs font-medium rounded-md">React</span>
-                  <span className="px-2 py-0.5 bg-accent-primary/8 text-accent-primary text-xs font-medium rounded-md">Next.js</span>
-                  <span className="px-2 py-0.5 bg-accent-primary/8 text-accent-primary text-xs font-medium rounded-md">TypeScript</span>
+                  <span className="px-2 py-0.5 bg-blue-500/10 text-blue-500 text-xs font-medium rounded-md">React</span>
+                  <span className="px-2 py-0.5 bg-purple-500/10 text-purple-500 text-xs font-medium rounded-md">Next.js</span>
+                  <span className="px-2 py-0.5 bg-cyan-500/10 text-cyan-500 text-xs font-medium rounded-md">TypeScript</span>
                 </div>
               </motion.div>
               
               <motion.div 
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.2 }}
-                className="bg-gradient-to-br from-accent-secondary/8 to-accent-secondary/3 rounded-xl p-4 border border-accent-secondary/15 hover:border-accent-secondary/30 transition-all duration-300 text-center"
+                className="bg-gradient-to-br from-accent-secondary/8 to-accent-secondary/3 rounded-xl p-4 border border-accent-secondary/15 hover:border-accent-secondary/30 transition-all duration-300 text-center w-full max-w-xs"
               >
                 <div className="flex flex-col items-center gap-2 mb-3">
-                  <div className="w-8 h-8 bg-accent-secondary/15 rounded-lg flex items-center justify-center">
-                    <User className="w-4 h-4 text-accent-secondary" />
+                  <div className="w-10 h-10 bg-accent-secondary/15 rounded-lg flex items-center justify-center">
+                    <User className="w-5 h-5 text-accent-secondary" />
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-foreground">UI/UX Designer</h4>
@@ -217,20 +217,20 @@ export default function About() {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-1 justify-center">
-                  <span className="px-2 py-0.5 bg-accent-secondary/8 text-accent-secondary text-xs font-medium rounded-md">Figma</span>
-                  <span className="px-2 py-0.5 bg-accent-secondary/8 text-accent-secondary text-xs font-medium rounded-md">Adobe XD</span>
-                  <span className="px-2 py-0.5 bg-accent-secondary/8 text-accent-secondary text-xs font-medium rounded-md">Prototyping</span>
+                  <span className="px-2 py-0.5 bg-pink-500/10 text-pink-500 text-xs font-medium rounded-md">Figma</span>
+                  <span className="px-2 py-0.5 bg-orange-500/10 text-orange-500 text-xs font-medium rounded-md">Adobe XD</span>
+                  <span className="px-2 py-0.5 bg-indigo-500/10 text-indigo-500 text-xs font-medium rounded-md">Prototyping</span>
                 </div>
               </motion.div>
               
               <motion.div 
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.2 }}
-                className="bg-gradient-to-br from-accent-success/8 to-accent-success/3 rounded-xl p-4 border border-accent-success/15 hover:border-accent-success/30 transition-all duration-300 text-center"
+                className="bg-gradient-to-br from-accent-success/8 to-accent-success/3 rounded-xl p-4 border border-accent-success/15 hover:border-accent-success/30 transition-all duration-300 text-center w-full max-w-xs"
               >
                 <div className="flex flex-col items-center gap-2 mb-3">
-                  <div className="w-8 h-8 bg-accent-success/15 rounded-lg flex items-center justify-center">
-                    <Clock className="w-4 h-4 text-accent-success" />
+                  <div className="w-10 h-10 bg-accent-success/15 rounded-lg flex items-center justify-center">
+                    <Clock className="w-5 h-5 text-accent-success" />
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-foreground">Mobile Developer</h4>
@@ -238,8 +238,8 @@ export default function About() {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-1 justify-center">
-                  <span className="px-2 py-0.5 bg-accent-success/8 text-accent-success text-xs font-medium rounded-md">React Native</span>
-                  <span className="px-2 py-0.5 bg-accent-success/8 text-accent-success text-xs font-medium rounded-md">Flutter</span>
+                  <span className="px-2 py-0.5 bg-teal-500/10 text-teal-500 text-xs font-medium rounded-md">React Native</span>
+                  <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-500 text-xs font-medium rounded-md">Flutter</span>
                 </div>
               </motion.div>
             </div>
