@@ -169,9 +169,9 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-32"
+            className="mt-32 -mx-6 md:mx-0"
           >
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 px-6 md:px-0">
               <h3 className="text-3xl font-bold text-foreground mb-4">
                 <span className="text-accent-primary">Experiencia</span>
               </h3>
@@ -180,7 +180,7 @@ export default function About() {
               </p>
             </div>
             
-            <div className="flex flex-col items-center gap-4 max-w-sm md:max-w-2xl mx-auto px-8 md:px-12">
+            <div className="flex flex-col items-center gap-4 max-w-sm md:max-w-2xl mx-auto px-6 md:px-12">
               <motion.div 
                 initial={{ opacity: 0, y: 20, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
