@@ -2,28 +2,20 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Sparkles } from 'lucide-react';
+import { ArrowDown, Sparkles, Code, Globe, Smartphone } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden bg-background">
-      {/* Fondo consistente con elementos sutiles */}
+    <section id="home" className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden">
+      {/* Fondo con elementos sutiles */}
       <div className="absolute inset-0">
-        {/* Gradiente sutil de fondo */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background-secondary to-background" />
-        
-        {/* Elementos decorativos sutiles */}
         <div className="absolute top-20 left-10 w-64 h-64 bg-accent-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-accent-secondary/5 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent-success/3 rounded-full blur-3xl" />
-        
-        {/* Líneas sutiles */}
-        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-primary/10 to-transparent" />
-        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-secondary/10 to-transparent" />
       </div>
 
       {/* Contenido principal */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto">
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
         {/* Badge de estado */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,9 +32,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-6xl md:text-8xl font-bold mb-10 leading-tight"
+          className="text-6xl md:text-8xl font-bold mb-8 leading-tight"
         >
-          <span className="block text-foreground mb-2">Hola, soy</span>
+          <span className="block text-foreground mb-4">Hola, soy</span>
           <span className="block bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-success bg-clip-text text-transparent">
             Desarrollador
           </span>
@@ -53,16 +45,37 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-2xl text-foreground-secondary mb-16 max-w-2xl mx-auto leading-relaxed"
+          className="text-2xl text-foreground-secondary mb-16 max-w-3xl mx-auto leading-relaxed"
         >
-          Creo experiencias digitales excepcionales con tecnologías modernas
+          Creo experiencias digitales excepcionales con tecnologías modernas y diseño centrado en el usuario
         </motion.p>
+
+        {/* Iconos de tecnologías */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex justify-center items-center gap-8 mb-16"
+        >
+          <div className="flex items-center gap-3 bg-background-secondary/60 rounded-xl px-4 py-3 border border-border">
+            <Code className="w-6 h-6 text-accent-primary" />
+            <span className="text-foreground-secondary font-medium">React</span>
+          </div>
+          <div className="flex items-center gap-3 bg-background-secondary/60 rounded-xl px-4 py-3 border border-border">
+            <Globe className="w-6 h-6 text-accent-secondary" />
+            <span className="text-foreground-secondary font-medium">Next.js</span>
+          </div>
+          <div className="flex items-center gap-3 bg-background-secondary/60 rounded-xl px-4 py-3 border border-border">
+            <Smartphone className="w-6 h-6 text-accent-success" />
+            <span className="text-foreground-secondary font-medium">Mobile</span>
+          </div>
+        </motion.div>
 
         {/* Botones CTA mejorados */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20"
         >
           <Button 
