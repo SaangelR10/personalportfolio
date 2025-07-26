@@ -113,13 +113,8 @@ export default function Skills() {
                     key={skill.id}
                     className="bg-background/50 rounded-2xl p-6 border border-border-light shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 flex flex-col items-center text-center space-y-4"
                   >
-                    {/* Icono */}
-                    <div className="w-12 h-12 bg-gradient-to-br from-accent-primary/20 to-accent-primary/10 rounded-xl flex items-center justify-center">
-                      <SkillIcon className="w-6 h-6 text-accent-primary" />
-                    </div>
-                    
                     {/* Título */}
-                    <h4 className="text-lg font-bold text-foreground">{skill.name}</h4>
+                    <h4 className="text-xl font-bold text-foreground">{skill.name}</h4>
                     
                     {/* Porcentaje */}
                     <span className="text-sm font-bold text-accent-primary">{skill.level}%</span>
