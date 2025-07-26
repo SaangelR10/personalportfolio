@@ -1,30 +1,48 @@
 "use client";
 
+import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github } from 'lucide-react';
 import { projects } from '@/lib/data';
 
+const categories = ['Todos', 'Frontend', 'Backend', 'Full-Stack', 'Mobile'];
+
 export default function Projects() {
+  const [activeCategory, setActiveCategory] = useState('Todos');
+
+  const filteredProjects = useMemo(() => {
+    if (activeCategory === 'Todos') return projects;
+    return projects.filter(project => project.category === activeCategory.toLowerCase());
+  }, [activeCategory]);
 
   return (
     <section id="projects" className="bg-background py-24 px-6 md:px-8 lg:px-16" style={{ marginLeft: '16px', marginRight: '16px' }}>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-foreground text-center mb-16"
-        >
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-16">
           Proyectos
-        </motion.h2>
+        </h2>
 
+        {/* Filtros minimalistas */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-6 py-3 rounded-full font-medium border transition-all duration-300 text-sm
+                ${activeCategory === category
+                  ? 'bg-gradient-to-r from-accent-primary to-accent-secondary text-white border-transparent shadow-md'
+                  : 'bg-background-secondary/60 text-foreground-secondary border-border hover:bg-background-secondary hover:text-foreground'}
+              `}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
 
-
-                {/* Grid de proyectos premium */}
+        {/* Grid de proyectos premium */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto px-6 md:px-8 lg:px-12" style={{ marginLeft: '8px', marginRight: '8px' }}>
-            {projects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
                 className="bg-gradient-to-br from-background-secondary/90 to-background-secondary/70 rounded-3xl border border-border-light/50 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group backdrop-blur-sm hover:scale-105 hover:-translate-y-2"
@@ -32,22 +50,14 @@ export default function Projects() {
                 {/* Header del proyecto */}
                 <div className="p-8 border-b border-border-light/30">
                   <div className="flex items-center justify-between mb-6">
-                    <motion.div 
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.6, ease: "easeInOut" }}
-                      className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center shadow-lg"
-                    >
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center shadow-lg">
                       <span className="text-2xl font-bold text-white">
                         {project.title.charAt(0)}
                       </span>
-                    </motion.div>
-                    <motion.span 
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.2 }}
-                      className="text-xs bg-gradient-to-r from-accent-success/20 to-accent-success/10 text-accent-success px-4 py-2 rounded-full font-semibold border border-accent-success/20"
-                    >
+                    </div>
+                    <span className="text-xs bg-gradient-to-r from-accent-success/20 to-accent-success/10 text-accent-success px-4 py-2 rounded-full font-semibold border border-accent-success/20">
                       {project.category}
-                    </motion.span>
+                    </span>
                   </div>
                   
                   <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-accent-primary transition-colors duration-300">
