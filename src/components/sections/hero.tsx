@@ -15,13 +15,13 @@ export default function Hero() {
       </div>
 
       {/* Contenido principal */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 pb-20">
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 py-20">
         {/* Badge de estado */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-3 px-6 py-3 bg-accent-primary/10 border border-accent-primary/20 rounded-full mb-16"
+          className="inline-flex items-center gap-3 px-6 py-3 bg-accent-primary/10 border border-accent-primary/20 rounded-full mb-20"
         >
           <Sparkles className="w-5 h-5 text-accent-primary" />
           <span className="text-sm font-semibold text-accent-primary">Disponible para proyectos</span>
@@ -32,9 +32,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-12 leading-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-16 leading-tight"
         >
-          <span className="block text-foreground mb-4">Hola, soy</span>
+          <span className="block text-foreground mb-6">Hola, soy</span>
           <span className="block bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-success bg-clip-text text-transparent">
             Desarrollador
           </span>
@@ -45,7 +45,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-foreground-secondary mb-20 max-w-3xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl text-foreground-secondary mb-24 max-w-3xl mx-auto leading-relaxed"
         >
           Creo experiencias digitales excepcionales con tecnologías modernas y diseño centrado en el usuario
         </motion.p>
@@ -55,7 +55,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-wrap justify-center items-center gap-6 mb-20"
+          className="flex flex-wrap justify-center items-center gap-6 mb-24"
         >
           <motion.div 
             whileHover={{ scale: 1.05, y: -5 }}
@@ -108,7 +108,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20"
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-32"
         >
           <Button 
             size="lg" 
@@ -126,12 +126,12 @@ export default function Hero() {
           </Button>
         </motion.div>
 
-        {/* Indicador de scroll elegante - ahora en posición fija */}
+        {/* Indicador de scroll elegante - ahora con más espacio */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
