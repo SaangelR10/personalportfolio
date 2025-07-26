@@ -228,3 +228,39 @@ img {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
+
+section {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+section > div > h1,
+section > div > h2,
+section > div > h3 {
+  margin-bottom: 32px;
+}
+
+section p,
+section ul,
+section .subtitle,
+section .description {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  section {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+  section > div > h1,
+  section > div > h2,
+  section > div > h3 {
+    margin-bottom: 20px;
+  }
+  section p,
+  section ul,
+  section .subtitle,
+  section .description {
+    margin-bottom: 16px;
+  }
+}
