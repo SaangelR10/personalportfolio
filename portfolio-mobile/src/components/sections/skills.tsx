@@ -111,20 +111,21 @@ export default function Skills() {
                 return (
                   <div
                     key={skill.id}
-                    className="bg-background/50 rounded-2xl p-6 border border-border-light shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-2"
+                    className="bg-background/50 rounded-2xl p-6 border border-border-light shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-2 flex flex-col items-center text-center space-y-4"
                   >
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-accent-primary/20 to-accent-primary/10 rounded-xl flex items-center justify-center">
-                        <SkillIcon className="w-6 h-6 text-accent-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-lg font-bold text-foreground">{skill.name}</h4>
-                        <span className="text-sm font-bold text-accent-primary">{skill.level}%</span>
-                      </div>
+                    {/* Icono */}
+                    <div className="w-12 h-12 bg-gradient-to-br from-accent-primary/20 to-accent-primary/10 rounded-xl flex items-center justify-center">
+                      <SkillIcon className="w-6 h-6 text-accent-primary" />
                     </div>
                     
-                    {/* Rueda de progreso */}
-                    <div className="relative w-20 h-20 mx-auto mb-4">
+                    {/* Título */}
+                    <h4 className="text-lg font-bold text-foreground">{skill.name}</h4>
+                    
+                    {/* Porcentaje */}
+                    <span className="text-sm font-bold text-accent-primary">{skill.level}%</span>
+                    
+                    {/* Círculo de progreso */}
+                    <div className="relative w-20 h-20">
                       <svg className="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
                         <path
                           d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -152,7 +153,8 @@ export default function Skills() {
                       </div>
                     </div>
                     
-                    <p className="text-sm text-foreground-secondary leading-relaxed text-center">
+                    {/* Descripción */}
+                    <p className="text-sm text-foreground-secondary leading-relaxed">
                       {skill.description}
                     </p>
                   </div>
