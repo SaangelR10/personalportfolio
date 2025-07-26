@@ -65,7 +65,7 @@ export default function Skills() {
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`flex items-center gap-3 px-6 py-4 rounded-2xl font-medium border transition-all duration-300 text-sm
+                className={`flex items-center justify-center gap-3 px-6 py-4 rounded-2xl font-medium border transition-all duration-300 text-sm
                   ${activeCategory === category.id
                     ? 'bg-gradient-to-r from-accent-primary to-accent-secondary text-white border-transparent shadow-lg scale-105'
                     : 'bg-background/50 text-foreground-secondary border-border hover:bg-background hover:text-foreground hover:scale-105'}
@@ -105,7 +105,7 @@ export default function Skills() {
             </div>
 
             {/* Grid de habilidades */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
               {activeSkills.map((skill, index) => {
                 const SkillIcon = getSkillIcon(skill.name);
                 return (
