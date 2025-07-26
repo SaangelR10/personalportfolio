@@ -21,15 +21,15 @@ export default function Skills() {
   const activeSkills = getSkillsByCategory(activeCategory);
 
   return (
-    <section id="skills" className="bg-background-secondary py-20 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section id="skills" className="bg-background-secondary py-24 px-6">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-foreground text-center mb-12"
+          className="text-4xl md:text-5xl font-bold text-foreground text-center mb-16"
         >
           Habilidades
         </motion.h2>
@@ -40,7 +40,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-4 mb-16"
         >
           {skillCategories.map((category) => (
             <button
@@ -66,10 +66,10 @@ export default function Skills() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="space-y-6"
+            className="space-y-8"
           >
             {/* Header de la categoría */}
-            <div className="text-center mb-8">
+            <div className="text-center mb-12">
               <div className="text-4xl mb-4">
                 {skillCategories.find(cat => cat.id === activeCategory)?.icon}
               </div>
@@ -138,7 +138,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           <div className="bg-background/50 rounded-2xl p-6 border border-border-light text-center">
             <div className="text-2xl font-bold text-accent-primary mb-2">

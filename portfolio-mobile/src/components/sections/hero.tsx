@@ -15,7 +15,7 @@ export default function Hero() {
       </div>
 
       {/* Contenido principal */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 pb-20">
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 pb-20">
         {/* Badge de estado */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-6xl md:text-8xl font-bold mb-8 leading-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight"
         >
           <span className="block text-foreground mb-4">Hola, soy</span>
           <span className="block bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-success bg-clip-text text-transparent">
@@ -45,7 +45,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-2xl text-foreground-secondary mb-16 max-w-3xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl text-foreground-secondary mb-16 max-w-3xl mx-auto leading-relaxed"
         >
           Creo experiencias digitales excepcionales con tecnologías modernas y diseño centrado en el usuario
         </motion.p>
@@ -58,16 +58,16 @@ export default function Hero() {
           className="flex flex-wrap justify-center items-center gap-4 mb-16"
         >
           <div className="flex items-center gap-3 bg-background-secondary/60 rounded-xl px-4 py-3 border border-border">
-            <Code className="w-6 h-6 text-accent-primary" />
-            <span className="text-foreground-secondary font-medium">React</span>
+            <Code className="w-5 h-5 text-accent-primary" />
+            <span className="text-foreground-secondary font-medium text-sm">React</span>
           </div>
           <div className="flex items-center gap-3 bg-background-secondary/60 rounded-xl px-4 py-3 border border-border">
-            <Globe className="w-6 h-6 text-accent-secondary" />
-            <span className="text-foreground-secondary font-medium">Next.js</span>
+            <Globe className="w-5 h-5 text-accent-secondary" />
+            <span className="text-foreground-secondary font-medium text-sm">Next.js</span>
           </div>
           <div className="flex items-center gap-3 bg-background-secondary/60 rounded-xl px-4 py-3 border border-border">
-            <Smartphone className="w-6 h-6 text-accent-success" />
-            <span className="text-foreground-secondary font-medium">Mobile</span>
+            <Smartphone className="w-5 h-5 text-accent-success" />
+            <span className="text-foreground-secondary font-medium text-sm">Mobile</span>
           </div>
         </motion.div>
 
@@ -76,27 +76,27 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-4xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto"
         >
           <div className="bg-background-secondary/40 rounded-2xl p-6 border border-border">
-            <div className="w-12 h-12 bg-accent-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Star className="w-6 h-6 text-accent-primary" />
+            <div className="w-10 h-10 bg-accent-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <Star className="w-5 h-5 text-accent-primary" />
             </div>
-            <h3 className="text-lg font-bold text-foreground mb-2">Calidad Premium</h3>
+            <h3 className="text-base font-bold text-foreground mb-2">Calidad Premium</h3>
             <p className="text-sm text-foreground-secondary">Código limpio y mantenible</p>
           </div>
           <div className="bg-background-secondary/40 rounded-2xl p-6 border border-border">
-            <div className="w-12 h-12 bg-accent-secondary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Zap className="w-6 h-6 text-accent-secondary" />
+            <div className="w-10 h-10 bg-accent-secondary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <Zap className="w-5 h-5 text-accent-secondary" />
             </div>
-            <h3 className="text-lg font-bold text-foreground mb-2">Rendimiento</h3>
+            <h3 className="text-base font-bold text-foreground mb-2">Rendimiento</h3>
             <p className="text-sm text-foreground-secondary">Aplicaciones rápidas y eficientes</p>
           </div>
           <div className="bg-background-secondary/40 rounded-2xl p-6 border border-border">
-            <div className="w-12 h-12 bg-accent-success/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Target className="w-6 h-6 text-accent-success" />
+            <div className="w-10 h-10 bg-accent-success/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <Target className="w-5 h-5 text-accent-success" />
             </div>
-            <h3 className="text-lg font-bold text-foreground mb-2">Enfoque UX</h3>
+            <h3 className="text-base font-bold text-foreground mb-2">Enfoque UX</h3>
             <p className="text-sm text-foreground-secondary">Experiencias intuitivas</p>
           </div>
         </motion.div>
@@ -110,7 +110,7 @@ export default function Hero() {
         >
           <Button 
             size="lg" 
-            className="w-full sm:w-auto bg-gradient-to-r from-accent-primary to-accent-secondary hover:from-accent-secondary hover:to-accent-primary text-white font-bold px-12 py-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-lg"
+            className="w-full sm:w-auto bg-gradient-to-r from-accent-primary to-accent-secondary hover:from-accent-secondary hover:to-accent-primary text-white font-bold px-10 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-base"
           >
             Ver Proyectos
           </Button>
@@ -118,7 +118,7 @@ export default function Hero() {
           <Button 
             variant="outline" 
             size="lg"
-            className="w-full sm:w-auto border-2 border-accent-success/30 text-accent-success hover:bg-accent-success/10 font-bold px-12 py-6 rounded-2xl transition-all duration-300 text-lg"
+            className="w-full sm:w-auto border-2 border-accent-success/30 text-accent-success hover:bg-accent-success/10 font-bold px-10 py-4 rounded-2xl transition-all duration-300 text-base"
           >
             Contactar
           </Button>
@@ -137,7 +137,7 @@ export default function Hero() {
             className="flex flex-col items-center gap-3"
           >
             <span className="text-sm text-foreground-secondary font-medium">Scroll</span>
-            <ArrowDown className="w-7 h-7 text-accent-primary" />
+            <ArrowDown className="w-6 h-6 text-accent-primary" />
           </motion.div>
         </motion.div>
       </div>

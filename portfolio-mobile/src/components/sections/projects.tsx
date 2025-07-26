@@ -17,7 +17,7 @@ export default function Projects() {
   }, [activeCategory]);
 
   return (
-    <section id="projects" className="bg-background py-20 px-6">
+    <section id="projects" className="bg-background py-24 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.h2
@@ -25,13 +25,13 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-foreground text-center mb-12"
+          className="text-4xl md:text-5xl font-bold text-foreground text-center mb-16"
         >
           Proyectos
         </motion.h2>
 
         {/* Filtros minimalistas */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           {categories.map((category) => (
             <button
               key={category}
@@ -57,7 +57,7 @@ export default function Projects() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 30 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-background-secondary/80 rounded-2xl border border-border-light shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className="bg-background-secondary/80 rounded-2xl border border-border-light shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
               >
                 {/* Header del proyecto */}
                 <div className="p-6 border-b border-border-light">
@@ -72,7 +72,7 @@ export default function Projects() {
                     </span>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-foreground mb-2">
+                  <h3 className="text-xl font-bold text-foreground mb-3">
                     {project.title}
                   </h3>
                   
