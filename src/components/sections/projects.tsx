@@ -3,9 +3,8 @@
 import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Filter } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import { projects } from '@/lib/data';
-import { Project } from '@/types';
 
 const categories = ['Todos', 'Frontend', 'Backend', 'Full-Stack', 'Mobile'];
 

@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { Code, Database, Smartphone, Users, TrendingUp } from 'lucide-react';
 import { skills } from '@/lib/data';
-import { Skill } from '@/types';
 
 const skillCategories = [
   { id: 'frontend', name: 'Frontend', icon: Code, color: 'accent-blue' },
