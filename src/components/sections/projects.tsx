@@ -47,83 +47,119 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Grid de proyectos mejorado */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        {/* Grid de proyectos premium */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-5xl mx-auto px-6">
           <AnimatePresence mode="wait">
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 30 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-background-secondary/80 rounded-2xl border border-border-light shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                initial={{ opacity: 0, y: 40, rotateX: -10 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                exit={{ opacity: 0, y: 40, rotateX: -10 }}
+                transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
+                whileHover={{ 
+                  scale: 1.03, 
+                  y: -12,
+                  rotateY: 2,
+                  boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
+                }}
+                className="bg-gradient-to-br from-background-secondary/90 to-background-secondary/70 rounded-3xl border border-border-light/50 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden group backdrop-blur-sm"
               >
                 {/* Header del proyecto */}
-                <div className="p-6 border-b border-border-light">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center">
-                      <span className="text-xl font-bold text-white">
+                <div className="p-8 border-b border-border-light/30">
+                  <div className="flex items-center justify-between mb-6">
+                    <motion.div 
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
+                      className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center shadow-lg"
+                    >
+                      <span className="text-2xl font-bold text-white">
                         {project.title.charAt(0)}
                       </span>
-                    </div>
-                    <span className="text-xs bg-accent-success/10 text-accent-success px-3 py-1 rounded-full font-medium">
+                    </motion.div>
+                    <motion.span 
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-xs bg-gradient-to-r from-accent-success/20 to-accent-success/10 text-accent-success px-4 py-2 rounded-full font-semibold border border-accent-success/20"
+                    >
                       {project.category}
-                    </span>
+                    </motion.span>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-foreground mb-3">
+                  <motion.h3 
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-2xl font-bold text-foreground mb-4 group-hover:text-accent-primary transition-colors duration-300"
+                  >
                     {project.title}
-                  </h3>
+                  </motion.h3>
                   
-                  <p className="text-foreground-secondary text-sm leading-relaxed">
+                  <p className="text-foreground-secondary text-base leading-relaxed">
                     {project.description}
                   </p>
                 </div>
 
                 {/* Tecnologías */}
-                <div className="p-6 border-b border-border-light">
-                  <h4 className="text-sm font-semibold text-foreground mb-3">Tecnologías</h4>
-                  <div className="flex flex-wrap gap-2">
+                <div className="p-8 border-b border-border-light/30">
+                  <h4 className="text-base font-semibold text-foreground mb-4">Tecnologías</h4>
+                  <div className="flex flex-wrap gap-3">
                     {project.technologies.slice(0, 4).map((tech, techIndex) => (
-                      <span
+                      <motion.span
                         key={techIndex}
-                        className="px-3 py-1 bg-background text-accent-primary border border-accent-primary/30 rounded-full text-xs font-medium"
+                        whileHover={{ scale: 1.1, y: -2 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="px-4 py-2 bg-gradient-to-r from-accent-primary/10 to-accent-primary/5 text-accent-primary border border-accent-primary/20 rounded-full text-sm font-medium hover:border-accent-primary/40 transition-all duration-300"
                       >
                         {tech}
-                      </span>
+                      </motion.span>
                     ))}
                     {project.technologies.length > 4 && (
-                      <span className="px-3 py-1 bg-background text-accent-secondary border border-accent-secondary/30 rounded-full text-xs font-medium">
+                      <motion.span 
+                        whileHover={{ scale: 1.1, y: -2 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="px-4 py-2 bg-gradient-to-r from-accent-secondary/10 to-accent-secondary/5 text-accent-secondary border border-accent-secondary/20 rounded-full text-sm font-medium hover:border-accent-secondary/40 transition-all duration-300"
+                      >
                         +{project.technologies.length - 4}
-                      </span>
+                      </motion.span>
                     )}
                   </div>
                 </div>
 
                 {/* Botones */}
-                <div className="p-6">
-                  <div className="flex gap-3">
+                <div className="p-8">
+                  <div className="flex gap-4">
                     {project.demoUrl && (
-                      <Button
-                        size="sm"
-                        className="flex-1 bg-accent-primary hover:bg-accent-secondary text-white px-4 py-2 rounded-xl text-sm font-semibold shadow"
-                        onClick={() => window.open(project.demoUrl, '_blank')}
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
                       >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Demo
-                      </Button>
+                        <Button
+                          size="lg"
+                          className="flex-1 bg-gradient-to-r from-accent-primary to-accent-secondary hover:from-accent-secondary hover:to-accent-primary text-white px-6 py-3 rounded-2xl text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                          onClick={() => window.open(project.demoUrl, '_blank')}
+                        >
+                          <ExternalLink className="w-5 h-5 mr-2" />
+                          Demo
+                        </Button>
+                      </motion.div>
                     )}
                     {project.githubUrl && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="flex-1 border-accent-secondary text-accent-secondary hover:bg-accent-secondary/10 px-4 py-2 rounded-xl text-sm font-semibold"
-                        onClick={() => window.open(project.githubUrl, '_blank')}
+                      <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
                       >
-                        <Github className="w-4 h-4 mr-2" />
-                        Código
-                      </Button>
+                        <Button
+                          size="lg"
+                          variant="outline"
+                          className="flex-1 border-2 border-accent-secondary text-accent-secondary hover:bg-accent-secondary/10 hover:border-accent-primary px-6 py-3 rounded-2xl text-base font-semibold transition-all duration-300"
+                          onClick={() => window.open(project.githubUrl, '_blank')}
+                        >
+                          <Github className="w-5 h-5 mr-2" />
+                          Código
+                        </Button>
+                      </motion.div>
                     )}
                   </div>
                 </div>
