@@ -14,8 +14,8 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent-success/3 rounded-full blur-3xl" />
       </div>
 
-      {/* Contenido principal */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 py-20">
+      {/* Contenido principal - Subido desde arriba */}
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 pt-32 pb-40">
         {/* Badge de estado */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -108,7 +108,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-32"
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
           <Button 
             size="lg" 
@@ -126,12 +126,12 @@ export default function Hero() {
           </Button>
         </motion.div>
 
-        {/* Indicador de scroll elegante - ahora con más espacio */}
+        {/* Indicador de scroll elegante - Ahora mucho más abajo */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
