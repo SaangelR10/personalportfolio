@@ -7,144 +7,137 @@ import { personalInfo, timeline } from '@/lib/data';
 
 export default function About() {
   return (
-    <section id="about" className="py-16 px-4 bg-background-secondary/30">
-      <div className="max-w-4xl mx-auto">
-        {/* Header de la sección */}
+    <section id="about" className="py-24 px-6 bg-background-secondary/20">
+      <div className="max-w-6xl mx-auto">
+        {/* Header minimalista */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-foreground">Sobre </span>
             <span className="text-accent-blue">Mí</span>
           </h2>
-          <p className="text-foreground-secondary max-w-2xl mx-auto">
-            Desarrollador apasionado por crear experiencias digitales excepcionales 
-            con las últimas tecnologías web y móviles.
-          </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Columna izquierda - Información personal */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Columna izquierda - Visual */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
+            className="text-center lg:text-left"
           >
-            {/* Avatar y información básica */}
-            <div className="text-center lg:text-left">
-              {/* Avatar */}
-              <div className="relative inline-block mb-6">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-accent-blue via-accent-magenta to-accent-green p-1">
-                  <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                    <div className="text-4xl font-bold text-accent-blue">
-                      {personalInfo.name.charAt(0)}
-                    </div>
+            {/* Avatar grande y llamativo */}
+            <div className="relative inline-block mb-12">
+              <div className="w-48 h-48 rounded-full bg-gradient-to-br from-accent-blue via-accent-magenta to-accent-green p-2">
+                <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
+                  <div className="text-8xl font-bold text-accent-blue">
+                    {personalInfo.name.charAt(0)}
                   </div>
                 </div>
-                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-accent-green rounded-full border-4 border-background flex items-center justify-center">
-                  <div className="w-3 h-3 bg-accent-green rounded-full animate-pulse" />
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-accent-green rounded-full border-4 border-background flex items-center justify-center">
+                <div className="w-6 h-6 bg-accent-green rounded-full animate-pulse" />
+              </div>
+            </div>
+
+            {/* Información de contacto visual */}
+            <div className="grid grid-cols-1 gap-6 mb-12">
+              <div className="flex items-center justify-center lg:justify-start gap-4 p-4 bg-background/50 rounded-2xl border border-border">
+                <div className="w-12 h-12 bg-accent-blue/10 rounded-xl flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-accent-blue" />
+                </div>
+                <div>
+                  <p className="text-sm text-foreground-secondary">Email</p>
+                  <p className="font-medium text-foreground">{personalInfo.email}</p>
                 </div>
               </div>
 
-              {/* Información de contacto */}
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center justify-center lg:justify-start gap-3 text-foreground-secondary">
-                  <Mail className="w-5 h-5 text-accent-blue" />
-                  <span className="text-sm">{personalInfo.email}</span>
+              <div className="flex items-center justify-center lg:justify-start gap-4 p-4 bg-background/50 rounded-2xl border border-border">
+                <div className="w-12 h-12 bg-accent-magenta/10 rounded-xl flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-accent-magenta" />
                 </div>
-                <div className="flex items-center justify-center lg:justify-start gap-3 text-foreground-secondary">
-                  <MapPin className="w-5 h-5 text-accent-magenta" />
-                  <span className="text-sm">{personalInfo.location}</span>
-                </div>
-                <div className="flex items-center justify-center lg:justify-start gap-3 text-foreground-secondary">
-                  <Calendar className="w-5 h-5 text-accent-green" />
-                  <span className="text-sm">Disponible para proyectos</span>
+                <div>
+                  <p className="text-sm text-foreground-secondary">Ubicación</p>
+                  <p className="font-medium text-foreground">{personalInfo.location}</p>
                 </div>
               </div>
 
-              {/* Botón CV */}
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-accent-blue to-accent-magenta hover:from-accent-magenta hover:to-accent-blue text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              >
-                <Download className="w-5 h-5 mr-2" />
-                Descargar CV
-              </Button>
+              <div className="flex items-center justify-center lg:justify-start gap-4 p-4 bg-background/50 rounded-2xl border border-border">
+                <div className="w-12 h-12 bg-accent-green/10 rounded-xl flex items-center justify-center">
+                  <Calendar className="w-6 h-6 text-accent-green" />
+                </div>
+                <div>
+                  <p className="text-sm text-foreground-secondary">Estado</p>
+                  <p className="font-medium text-foreground">Disponible</p>
+                </div>
+              </div>
             </div>
 
-            {/* Biografía */}
-            <div className="bg-background/50 rounded-2xl p-6 border border-border">
-              <h3 className="text-xl font-semibold mb-4 text-foreground">Biografía</h3>
-              <p className="text-foreground-secondary leading-relaxed">
-                {personalInfo.bio}
-              </p>
-            </div>
+            {/* Botón CV */}
+            <Button
+              size="lg"
+              className="w-full lg:w-auto bg-gradient-to-r from-accent-blue to-accent-magenta hover:from-accent-magenta hover:to-accent-blue text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            >
+              <Download className="w-5 h-5 mr-2" />
+              Descargar CV
+            </Button>
           </motion.div>
 
-          {/* Columna derecha - Timeline */}
+          {/* Columna derecha - Timeline visual */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="space-y-6"
+            className="space-y-8"
           >
-            <h3 className="text-2xl font-semibold text-foreground mb-6">Experiencia</h3>
+            <h3 className="text-3xl font-bold text-foreground mb-8">Experiencia</h3>
             
-            <div className="relative">
-              {/* Línea de tiempo */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-blue via-accent-magenta to-accent-green" />
-              
-              {timeline.map((item, index) => (
+            <div className="space-y-6">
+              {timeline.slice(0, 3).map((item, index) => (
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative flex items-start mb-8 last:mb-0"
+                  className="relative"
                 >
-                  {/* Punto de la línea de tiempo */}
-                  <div className="absolute left-4 top-2 w-4 h-4 rounded-full bg-gradient-to-r from-accent-blue to-accent-magenta border-4 border-background shadow-lg" />
+                  {/* Línea de tiempo */}
+                  {index < 2 && (
+                    <div className="absolute left-6 top-16 bottom-0 w-0.5 bg-gradient-to-b from-accent-blue to-accent-magenta" />
+                  )}
                   
-                  {/* Contenido */}
-                  <div className="ml-12 bg-background/50 rounded-xl p-6 border border-border hover:border-accent-blue/30 transition-all duration-300 group">
-                    <div className="flex items-center justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-foreground group-hover:text-accent-blue transition-colors">
-                        {item.title}
-                      </h4>
-                      <span className="text-sm text-accent-blue font-medium bg-accent-blue/10 px-3 py-1 rounded-full">
-                        {item.year}
-                      </span>
+                  <div className="flex items-start gap-6">
+                    {/* Punto de la línea */}
+                    <div className="relative z-10 flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-accent-blue to-accent-magenta border-4 border-background shadow-lg flex items-center justify-center">
+                        <span className="text-sm font-bold text-white">{item.year}</span>
+                      </div>
                     </div>
                     
-                    <p className="text-foreground-secondary mb-3">
-                      {item.company}
-                    </p>
-                    
-                    <p className="text-sm text-foreground-secondary leading-relaxed">
-                      {item.description}
-                    </p>
-                    
-                    {/* Tecnologías */}
-                    {item.technologies && (
-                      <div className="flex flex-wrap gap-2 mt-4">
-                        {item.technologies.map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className="text-xs bg-background-secondary/50 text-foreground-secondary px-2 py-1 rounded-md"
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                    {/* Contenido */}
+                    <div className="flex-1 bg-background/50 rounded-2xl p-6 border border-border hover:border-accent-blue/30 transition-all duration-300">
+                      <div className="flex items-start justify-between mb-3">
+                        <h4 className="text-xl font-semibold text-foreground">
+                          {item.title}
+                        </h4>
                       </div>
-                    )}
+                      
+                      <p className="text-accent-blue font-medium mb-2">
+                        {item.company}
+                      </p>
+                      
+                      <p className="text-foreground-secondary text-sm leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               ))}

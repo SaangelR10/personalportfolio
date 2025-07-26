@@ -36,53 +36,50 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-16 px-4 bg-background-secondary/30">
-      <div className="max-w-6xl mx-auto">
-        {/* Header de la sección */}
+    <section id="skills" className="py-24 px-6 bg-background-secondary/20">
+      <div className="max-w-7xl mx-auto">
+        {/* Header minimalista */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-foreground">Mis </span>
             <span className="text-accent-blue">Habilidades</span>
           </h2>
-          <p className="text-foreground-secondary max-w-2xl mx-auto">
-            Tecnologías y herramientas que utilizo para crear experiencias digitales excepcionales.
-          </p>
         </motion.div>
 
-        {/* Estadísticas generales */}
+        {/* Estadísticas visuales */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
         >
-          <div className="bg-background/50 rounded-2xl p-6 text-center border border-border">
-            <div className="text-3xl font-bold text-accent-blue mb-2">3+</div>
+          <div className="bg-background/50 rounded-3xl p-8 text-center border border-border">
+            <div className="text-4xl font-bold text-accent-blue mb-3">3+</div>
             <div className="text-sm text-foreground-secondary">Años de Experiencia</div>
           </div>
-          <div className="bg-background/50 rounded-2xl p-6 text-center border border-border">
-            <div className="text-3xl font-bold text-accent-magenta mb-2">20+</div>
+          <div className="bg-background/50 rounded-3xl p-8 text-center border border-border">
+            <div className="text-4xl font-bold text-accent-magenta mb-3">20+</div>
             <div className="text-sm text-foreground-secondary">Proyectos Completados</div>
           </div>
-          <div className="bg-background/50 rounded-2xl p-6 text-center border border-border">
-            <div className="text-3xl font-bold text-accent-green mb-2">15+</div>
+          <div className="bg-background/50 rounded-3xl p-8 text-center border border-border">
+            <div className="text-4xl font-bold text-accent-green mb-3">15+</div>
             <div className="text-sm text-foreground-secondary">Tecnologías Dominadas</div>
           </div>
-          <div className="bg-background/50 rounded-2xl p-6 text-center border border-border">
-            <div className="text-3xl font-bold text-accent-blue mb-2">100%</div>
+          <div className="bg-background/50 rounded-3xl p-8 text-center border border-border">
+            <div className="text-4xl font-bold text-accent-blue mb-3">100%</div>
             <div className="text-sm text-foreground-secondary">Satisfacción del Cliente</div>
           </div>
         </motion.div>
 
         {/* Categorías de habilidades */}
-        <div className="space-y-12">
+        <div className="space-y-16">
           {skillCategories.map((category, categoryIndex) => {
             const categorySkills = getSkillsByCategory(category.id);
             if (categorySkills.length === 0) return null;
@@ -94,23 +91,23 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-                className="space-y-6"
+                className="space-y-8"
               >
                 {/* Header de categoría */}
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 rounded-xl ${getBgColorClass(category.color)} flex items-center justify-center`}>
-                    <category.icon className={`w-6 h-6 ${getColorClass(category.color)}`} />
+                <div className="flex items-center gap-6">
+                  <div className={`w-16 h-16 rounded-2xl ${getBgColorClass(category.color)} flex items-center justify-center`}>
+                    <category.icon className={`w-8 h-8 ${getColorClass(category.color)}`} />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-semibold text-foreground">{category.name}</h3>
-                    <p className="text-foreground-secondary text-sm">
+                    <h3 className="text-3xl font-bold text-foreground">{category.name}</h3>
+                    <p className="text-foreground-secondary">
                       {categorySkills.length} tecnologías
                     </p>
                   </div>
                 </div>
 
-                {/* Grid de habilidades */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {/* Grid de habilidades mejorado */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {categorySkills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill.id}
@@ -120,18 +117,18 @@ export default function Skills() {
                       transition={{ duration: 0.4, delay: skillIndex * 0.05 }}
                       className="group"
                     >
-                      <div className="bg-background/50 rounded-xl p-6 border border-border hover:border-accent-blue/30 transition-all duration-300 hover:shadow-lg">
+                      <div className="bg-background/50 rounded-2xl p-6 border border-border hover:border-accent-blue/30 transition-all duration-300 hover:shadow-lg h-full">
                         <div className="flex items-center justify-between mb-4">
-                          <h4 className="text-lg font-semibold text-foreground group-hover:text-accent-blue transition-colors">
+                          <h4 className="text-xl font-bold text-foreground group-hover:text-accent-blue transition-colors">
                             {skill.name}
                           </h4>
-                          <span className="text-sm font-medium text-accent-blue">
+                          <span className="text-lg font-bold text-accent-blue">
                             {skill.level}%
                           </span>
                         </div>
                         
-                        {/* Barra de progreso */}
-                        <div className="relative h-2 bg-background-secondary rounded-full overflow-hidden mb-3">
+                        {/* Barra de progreso mejorada */}
+                        <div className="relative h-3 bg-background-secondary rounded-full overflow-hidden mb-4">
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${skill.level}%` }}
@@ -153,36 +150,32 @@ export default function Skills() {
           })}
         </div>
 
-        {/* Sección de certificaciones */}
+        {/* Sección de certificaciones visual */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-16 bg-gradient-to-r from-accent-blue/10 via-accent-magenta/10 to-accent-green/10 rounded-2xl p-8 border border-accent-blue/20"
+          className="mt-20 bg-gradient-to-r from-accent-blue/10 via-accent-magenta/10 to-accent-green/10 rounded-3xl p-12 border border-accent-blue/20"
         >
           <div className="text-center">
-            <h3 className="text-2xl font-semibold text-foreground mb-4">
-              Certificaciones y Cursos
+            <h3 className="text-3xl font-bold text-foreground mb-6">
+              Certificaciones
             </h3>
-            <p className="text-foreground-secondary mb-6 max-w-2xl mx-auto">
-              Me mantengo actualizado con las últimas tecnologías y mejores prácticas 
-              a través de certificaciones y cursos especializados.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-background/50 rounded-xl p-4 border border-border">
-                <div className="text-2xl mb-2">🎓</div>
-                <div className="font-semibold text-foreground">Next.js 15</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-background/50 rounded-2xl p-8 border border-border">
+                <div className="text-4xl mb-4">🎓</div>
+                <div className="text-xl font-bold text-foreground mb-2">Next.js 15</div>
                 <div className="text-sm text-foreground-secondary">Certificación Oficial</div>
               </div>
-              <div className="bg-background/50 rounded-xl p-4 border border-border">
-                <div className="text-2xl mb-2">⚛️</div>
-                <div className="font-semibold text-foreground">React Advanced</div>
+              <div className="bg-background/50 rounded-2xl p-8 border border-border">
+                <div className="text-4xl mb-4">⚛️</div>
+                <div className="text-xl font-bold text-foreground mb-2">React Advanced</div>
                 <div className="text-sm text-foreground-secondary">Patrones y Optimización</div>
               </div>
-              <div className="bg-background/50 rounded-xl p-4 border border-border">
-                <div className="text-2xl mb-2">🎨</div>
-                <div className="font-semibold text-foreground">UI/UX Design</div>
+              <div className="bg-background/50 rounded-2xl p-8 border border-border">
+                <div className="text-4xl mb-4">🎨</div>
+                <div className="text-xl font-bold text-foreground mb-2">UI/UX Design</div>
                 <div className="text-sm text-foreground-secondary">Diseño Centrado en Usuario</div>
               </div>
             </div>

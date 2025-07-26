@@ -2,27 +2,29 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, Download, ExternalLink } from 'lucide-react';
+import { ArrowDown, Sparkles } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center px-4 py-8 overflow-hidden">
-      {/* Fondo con gradiente animado */}
+    <section id="home" className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
+      {/* Fondo dinámico */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background-secondary to-background">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,221,235,0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,0,122,0.05),transparent_50%)]" />
+        {/* Elementos decorativos flotantes */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-accent-blue/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent-magenta/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent-green/5 rounded-full blur-3xl" />
       </div>
 
       {/* Contenido principal */}
-      <div className="relative z-10 text-center max-w-md mx-auto">
-        {/* Badge de disponibilidad */}
+      <div className="relative z-10 text-center max-w-2xl mx-auto">
+        {/* Badge de estado */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-4 py-2 bg-accent-blue/10 border border-accent-blue/20 rounded-full mb-8"
         >
-          <div className="w-2 h-2 bg-accent-green rounded-full animate-pulse" />
+          <Sparkles className="w-4 h-4 text-accent-blue" />
           <span className="text-sm font-medium text-accent-blue">Disponible para proyectos</span>
         </motion.div>
 
@@ -31,23 +33,22 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
+          className="text-5xl md:text-7xl font-bold mb-8 leading-tight"
         >
-          <span className="block text-foreground">Desarrollador</span>
+          <span className="block text-foreground">Hola, soy</span>
           <span className="block bg-gradient-to-r from-accent-blue via-accent-magenta to-accent-green bg-clip-text text-transparent">
-            Frontend
+            Desarrollador
           </span>
         </motion.h1>
 
-        {/* Subtítulo */}
+        {/* Subtítulo corto */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg text-foreground-secondary mb-8 leading-relaxed"
+          className="text-xl text-foreground-secondary mb-12 max-w-lg mx-auto"
         >
-          Creo experiencias digitales excepcionales con tecnologías modernas. 
-          Especializado en aplicaciones móviles y web de alto rendimiento.
+          Creo experiencias digitales excepcionales
         </motion.p>
 
         {/* Botones CTA */}
@@ -55,45 +56,22 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
           <Button 
             size="lg" 
-            className="w-full sm:w-auto bg-gradient-to-r from-accent-blue to-accent-magenta hover:from-accent-magenta hover:to-accent-blue text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            className="w-full sm:w-auto bg-gradient-to-r from-accent-blue to-accent-magenta hover:from-accent-magenta hover:to-accent-blue text-white font-semibold px-10 py-6 rounded-2xl shadow-2xl hover:shadow-accent-blue/25 transition-all duration-300 transform hover:scale-105 text-lg"
           >
-            <ExternalLink className="w-5 h-5 mr-2" />
             Ver Proyectos
           </Button>
           
           <Button 
             variant="outline" 
             size="lg"
-            className="w-full sm:w-auto border-2 border-accent-green/30 text-accent-green hover:bg-accent-green/10 font-semibold px-8 py-4 rounded-xl transition-all duration-300"
+            className="w-full sm:w-auto border-2 border-accent-green/30 text-accent-green hover:bg-accent-green/10 font-semibold px-10 py-6 rounded-2xl transition-all duration-300 text-lg"
           >
-            <Download className="w-5 h-5 mr-2" />
-            Descargar CV
+            Contactar
           </Button>
-        </motion.div>
-
-        {/* Estadísticas rápidas */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid grid-cols-3 gap-6 mb-12"
-        >
-          <div className="text-center">
-            <div className="text-2xl font-bold text-accent-blue mb-1">3+</div>
-            <div className="text-sm text-foreground-secondary">Años Exp.</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-accent-magenta mb-1">20+</div>
-            <div className="text-sm text-foreground-secondary">Proyectos</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-accent-green mb-1">15+</div>
-            <div className="text-sm text-foreground-secondary">Tecnologías</div>
-          </div>
         </motion.div>
 
         {/* Indicador de scroll */}
@@ -109,14 +87,10 @@ export default function Hero() {
             className="flex flex-col items-center gap-2"
           >
             <span className="text-sm text-foreground-secondary">Scroll</span>
-            <ChevronDown className="w-6 h-6 text-accent-blue" />
+            <ArrowDown className="w-6 h-6 text-accent-blue" />
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Elementos decorativos */}
-      <div className="absolute top-20 right-4 w-32 h-32 bg-accent-blue/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-4 w-24 h-24 bg-accent-magenta/5 rounded-full blur-3xl" />
     </section>
   );
 }

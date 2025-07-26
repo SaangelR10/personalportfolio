@@ -42,28 +42,24 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 px-4 bg-background">
-      <div className="max-w-4xl mx-auto">
-        {/* Header de la sección */}
+    <section id="contact" className="py-24 px-6 bg-background">
+      <div className="max-w-6xl mx-auto">
+        {/* Header minimalista */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-foreground">Contácta</span>
             <span className="text-accent-blue">me</span>
           </h2>
-          <p className="text-foreground-secondary max-w-2xl mx-auto">
-            ¿Tienes un proyecto en mente? ¡Me encantaría escuchar sobre él! 
-            Estoy disponible para colaboraciones y oportunidades emocionantes.
-          </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Información de contacto */}
+        <div className="grid lg:grid-cols-2 gap-16">
+          {/* Información de contacto visual */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -72,37 +68,37 @@ export default function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-semibold text-foreground mb-6">
+              <h3 className="text-3xl font-bold text-foreground mb-8">
                 Información de Contacto
               </h3>
               
               <div className="space-y-6">
-                <div className="flex items-center gap-4 p-4 bg-background-secondary/50 rounded-xl border border-border">
-                  <div className="w-12 h-12 bg-accent-blue/10 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-accent-blue" />
+                <div className="flex items-center gap-6 p-6 bg-background-secondary/30 rounded-2xl border border-border">
+                  <div className="w-16 h-16 bg-accent-blue/10 rounded-2xl flex items-center justify-center">
+                    <Mail className="w-8 h-8 text-accent-blue" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">Email</h4>
+                    <h4 className="text-lg font-bold text-foreground mb-1">Email</h4>
                     <p className="text-foreground-secondary">tu-email@ejemplo.com</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-background-secondary/50 rounded-xl border border-border">
-                  <div className="w-12 h-12 bg-accent-magenta/10 rounded-xl flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-accent-magenta" />
+                <div className="flex items-center gap-6 p-6 bg-background-secondary/30 rounded-2xl border border-border">
+                  <div className="w-16 h-16 bg-accent-magenta/10 rounded-2xl flex items-center justify-center">
+                    <Phone className="w-8 h-8 text-accent-magenta" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">Teléfono</h4>
+                    <h4 className="text-lg font-bold text-foreground mb-1">Teléfono</h4>
                     <p className="text-foreground-secondary">+1 (555) 123-4567</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-background-secondary/50 rounded-xl border border-border">
-                  <div className="w-12 h-12 bg-accent-green/10 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-accent-green" />
+                <div className="flex items-center gap-6 p-6 bg-background-secondary/30 rounded-2xl border border-border">
+                  <div className="w-16 h-16 bg-accent-green/10 rounded-2xl flex items-center justify-center">
+                    <MapPin className="w-8 h-8 text-accent-green" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">Ubicación</h4>
+                    <h4 className="text-lg font-bold text-foreground mb-1">Ubicación</h4>
                     <p className="text-foreground-secondary">Ciudad, País</p>
                   </div>
                 </div>
@@ -111,7 +107,7 @@ export default function Contact() {
 
             {/* Redes sociales */}
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
+              <h3 className="text-2xl font-bold text-foreground mb-6">
                 Sígueme en Redes
               </h3>
               <div className="flex gap-4">
@@ -123,27 +119,24 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-12 h-12 bg-background-secondary/50 rounded-xl border border-border flex items-center justify-center hover:border-accent-blue/30 hover:bg-accent-blue/10 transition-all duration-300"
+                    className="w-14 h-14 bg-background-secondary/30 rounded-2xl border border-border flex items-center justify-center hover:border-accent-blue/30 hover:bg-accent-blue/10 transition-all duration-300"
                   >
-                    {social.name === 'LinkedIn' && <Linkedin className="w-6 h-6 text-accent-blue" />}
-                    {social.name === 'GitHub' && <Github className="w-6 h-6 text-foreground" />}
-                    {social.name === 'Twitter' && <Twitter className="w-6 h-6 text-accent-magenta" />}
+                    {social.name === 'LinkedIn' && <Linkedin className="w-7 h-7 text-accent-blue" />}
+                    {social.name === 'GitHub' && <Github className="w-7 h-7 text-foreground" />}
+                    {social.name === 'Twitter' && <Twitter className="w-7 h-7 text-accent-magenta" />}
                   </motion.a>
                 ))}
               </div>
             </div>
 
             {/* Disponibilidad */}
-            <div className="bg-gradient-to-r from-accent-blue/10 via-accent-magenta/10 to-accent-green/10 rounded-2xl p-6 border border-accent-blue/20">
-              <h4 className="font-semibold text-foreground mb-2">
+            <div className="bg-gradient-to-r from-accent-blue/10 via-accent-magenta/10 to-accent-green/10 rounded-2xl p-8 border border-accent-blue/20">
+              <h4 className="text-xl font-bold text-foreground mb-4">
                 Disponibilidad
               </h4>
-              <p className="text-foreground-secondary text-sm mb-4">
-                Actualmente disponible para nuevos proyectos y colaboraciones.
-              </p>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-accent-green rounded-full animate-pulse" />
-                <span className="text-sm text-accent-green font-medium">
+              <div className="flex items-center gap-3">
+                <div className="w-4 h-4 bg-accent-green rounded-full animate-pulse" />
+                <span className="text-accent-green font-bold">
                   Disponible para proyectos
                 </span>
               </div>
@@ -157,15 +150,15 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="bg-background-secondary/50 rounded-2xl p-8 border border-border">
-              <h3 className="text-2xl font-semibold text-foreground mb-6">
+            <div className="bg-background-secondary/30 rounded-3xl p-10 border border-border">
+              <h3 className="text-3xl font-bold text-foreground mb-8">
                 Envíame un Mensaje
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Nombre */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="name" className="block text-sm font-bold text-foreground mb-3">
                     Nombre Completo
                   </label>
                   <input
@@ -175,14 +168,14 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-background rounded-xl border border-border focus:border-accent-blue focus:outline-none focus:ring-2 focus:ring-accent-blue/20 transition-all duration-300 text-foreground placeholder-foreground-secondary"
+                    className="w-full px-6 py-4 bg-background rounded-2xl border border-border focus:border-accent-blue focus:outline-none focus:ring-2 focus:ring-accent-blue/20 transition-all duration-300 text-foreground placeholder-foreground-secondary text-lg"
                     placeholder="Tu nombre completo"
                   />
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="email" className="block text-sm font-bold text-foreground mb-3">
                     Email
                   </label>
                   <input
@@ -192,14 +185,14 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-background rounded-xl border border-border focus:border-accent-blue focus:outline-none focus:ring-2 focus:ring-accent-blue/20 transition-all duration-300 text-foreground placeholder-foreground-secondary"
+                    className="w-full px-6 py-4 bg-background rounded-2xl border border-border focus:border-accent-blue focus:outline-none focus:ring-2 focus:ring-accent-blue/20 transition-all duration-300 text-foreground placeholder-foreground-secondary text-lg"
                     placeholder="tu-email@ejemplo.com"
                   />
                 </div>
 
                 {/* Mensaje */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="message" className="block text-sm font-bold text-foreground mb-3">
                     Mensaje
                   </label>
                   <textarea
@@ -209,7 +202,7 @@ export default function Contact() {
                     onChange={handleInputChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-background rounded-xl border border-border focus:border-accent-blue focus:outline-none focus:ring-2 focus:ring-accent-blue/20 transition-all duration-300 text-foreground placeholder-foreground-secondary resize-none"
+                    className="w-full px-6 py-4 bg-background rounded-2xl border border-border focus:border-accent-blue focus:outline-none focus:ring-2 focus:ring-accent-blue/20 transition-all duration-300 text-foreground placeholder-foreground-secondary resize-none text-lg"
                     placeholder="Cuéntame sobre tu proyecto..."
                   />
                 </div>
@@ -218,16 +211,16 @@ export default function Contact() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-accent-blue to-accent-magenta hover:from-accent-magenta hover:to-accent-blue text-white font-semibold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-accent-blue to-accent-magenta hover:from-accent-magenta hover:to-accent-blue text-white font-bold py-6 rounded-2xl shadow-2xl hover:shadow-accent-blue/25 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-lg"
                 >
                   {isSubmitting ? (
-                    <div className="flex items-center gap-2">
-                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                       Enviando...
                     </div>
                   ) : (
-                    <div className="flex items-center gap-2">
-                      <Send className="w-5 h-5" />
+                    <div className="flex items-center gap-3">
+                      <Send className="w-6 h-6" />
                       Enviar Mensaje
                     </div>
                   )}
@@ -240,11 +233,11 @@ export default function Contact() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="flex items-center gap-3 p-4 bg-accent-green/10 border border-accent-green/20 rounded-xl"
+                      className="flex items-center gap-4 p-6 bg-accent-green/10 border border-accent-green/20 rounded-2xl"
                     >
-                      <CheckCircle className="w-5 h-5 text-accent-green" />
-                      <span className="text-sm text-accent-green">
-                        ¡Mensaje enviado con éxito! Te responderé pronto.
+                      <CheckCircle className="w-6 h-6 text-accent-green" />
+                      <span className="text-accent-green font-bold">
+                        ¡Mensaje enviado con éxito!
                       </span>
                     </motion.div>
                   )}
@@ -254,11 +247,11 @@ export default function Contact() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="flex items-center gap-3 p-4 bg-accent-magenta/10 border border-accent-magenta/20 rounded-xl"
+                      className="flex items-center gap-4 p-6 bg-accent-magenta/10 border border-accent-magenta/20 rounded-2xl"
                     >
-                      <AlertCircle className="w-5 h-5 text-accent-magenta" />
-                      <span className="text-sm text-accent-magenta">
-                        Error al enviar el mensaje. Inténtalo de nuevo.
+                      <AlertCircle className="w-6 h-6 text-accent-magenta" />
+                      <span className="text-accent-magenta font-bold">
+                        Error al enviar el mensaje
                       </span>
                     </motion.div>
                   )}

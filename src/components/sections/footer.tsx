@@ -19,10 +19,10 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-background-secondary/50 border-t border-border">
-      <div className="max-w-6xl mx-auto px-4 py-12">
+    <footer className="bg-background-secondary/30 border-t border-border">
+      <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Contenido principal del footer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Información del desarrollador */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -31,13 +31,13 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-blue to-accent-magenta flex items-center justify-center">
-                <Code className="w-6 h-6 text-white" />
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent-blue to-accent-magenta flex items-center justify-center">
+                <Code className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-foreground">Portfolio</h3>
+              <h3 className="text-2xl font-bold text-foreground">Portfolio</h3>
             </div>
-            <p className="text-foreground-secondary mb-6 leading-relaxed">
+            <p className="text-foreground-secondary mb-8 leading-relaxed text-lg">
               Desarrollador frontend apasionado por crear experiencias digitales excepcionales. 
               Especializado en Next.js, React y aplicaciones móviles modernas.
             </p>
@@ -50,11 +50,11 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-10 h-10 bg-background/50 rounded-xl border border-border flex items-center justify-center hover:border-accent-blue/30 hover:bg-accent-blue/10 transition-all duration-300"
+                  className="w-12 h-12 bg-background/50 rounded-2xl border border-border flex items-center justify-center hover:border-accent-blue/30 hover:bg-accent-blue/10 transition-all duration-300"
                 >
-                  {social.name === 'LinkedIn' && <Linkedin className="w-5 h-5 text-accent-blue" />}
-                  {social.name === 'GitHub' && <Github className="w-5 h-5 text-foreground" />}
-                  {social.name === 'Twitter' && <Twitter className="w-5 h-5 text-accent-magenta" />}
+                  {social.name === 'LinkedIn' && <Linkedin className="w-6 h-6 text-accent-blue" />}
+                  {social.name === 'GitHub' && <Github className="w-6 h-6 text-foreground" />}
+                  {social.name === 'Twitter' && <Twitter className="w-6 h-6 text-accent-magenta" />}
                 </motion.a>
               ))}
             </div>
@@ -67,13 +67,13 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="text-lg font-semibold text-foreground mb-4">Navegación</h4>
-            <ul className="space-y-3">
+            <h4 className="text-xl font-bold text-foreground mb-6">Navegación</h4>
+            <ul className="space-y-4">
               {navigationSections.map((section) => (
                 <li key={section.name}>
                   <a
                     href={section.href}
-                    className="text-foreground-secondary hover:text-accent-blue transition-colors duration-300 text-sm"
+                    className="text-foreground-secondary hover:text-accent-blue transition-colors duration-300 text-lg"
                   >
                     {section.name}
                   </a>
@@ -89,73 +89,43 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-lg font-semibold text-foreground mb-4">Contacto</h4>
-            <div className="space-y-3 text-sm">
-              <p className="text-foreground-secondary">
-                <span className="text-accent-blue">Email:</span><br />
-                tu-email@ejemplo.com
-              </p>
-              <p className="text-foreground-secondary">
-                <span className="text-accent-magenta">Ubicación:</span><br />
-                Ciudad, País
-              </p>
-              <p className="text-foreground-secondary">
-                <span className="text-accent-green">Disponibilidad:</span><br />
-                Abierto a proyectos
-              </p>
+            <h4 className="text-xl font-bold text-foreground mb-6">Contacto</h4>
+            <div className="space-y-4">
+              <p className="text-foreground-secondary text-lg">tu-email@ejemplo.com</p>
+              <p className="text-foreground-secondary text-lg">+1 (555) 123-4567</p>
+              <p className="text-foreground-secondary text-lg">Ciudad, País</p>
             </div>
           </motion.div>
         </div>
 
-        {/* Separador */}
-        <div className="border-t border-border my-8" />
+        {/* Línea divisoria */}
+        <div className="border-t border-border pt-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            {/* Copyright */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex items-center gap-2 text-foreground-secondary"
+            >
+              <span>© 2025 Portfolio. Hecho con</span>
+              <Heart className="w-5 h-5 text-accent-magenta fill-current" />
+              <span>y Next.js</span>
+            </motion.div>
 
-        {/* Footer inferior */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col md:flex-row items-center justify-between gap-4"
-        >
-          {/* Copyright y slogan */}
-          <div className="text-center md:text-left">
-            <p className="text-sm text-foreground-secondary mb-2">
-              © 2025 Portfolio. Todos los derechos reservados.
-            </p>
-            <p className="text-sm text-foreground-secondary flex items-center justify-center md:justify-start gap-2">
-              Hecho con <Heart className="w-4 h-4 text-accent-magenta fill-current" /> 
-              y mucho <Code className="w-4 h-4 text-accent-blue" />
-            </p>
+            {/* Botón volver arriba */}
+            <motion.button
+              onClick={scrollToTop}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent-blue to-accent-magenta text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <ArrowUp className="w-5 h-5" />
+              Volver arriba
+            </motion.button>
           </div>
-
-          {/* Botón volver arriba */}
-          <Button
-            onClick={scrollToTop}
-            variant="outline"
-            size="sm"
-            className="border-accent-blue/30 text-accent-blue hover:bg-accent-blue/10 hover:border-accent-blue transition-all duration-300"
-          >
-            <ArrowUp className="w-4 h-4 mr-2" />
-            Volver arriba
-          </Button>
-        </motion.div>
-
-        {/* Mensaje adicional */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-8"
-        >
-          <div className="bg-gradient-to-r from-accent-blue/10 via-accent-magenta/10 to-accent-green/10 rounded-2xl p-6 border border-accent-blue/20">
-            <p className="text-sm text-foreground-secondary">
-              ¿Tienes un proyecto interesante? ¡Me encantaría colaborar contigo! 
-              Siempre estoy buscando nuevos desafíos y oportunidades para crear algo increíble.
-            </p>
-          </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );
