@@ -149,7 +149,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto mb-16"
           >
             {stats.map((stat, i) => (
               <div key={stat.label} className="flex flex-col items-center justify-center">
@@ -169,7 +169,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-20 -mx-6 md:mx-0"
+            className="mt-32 -mx-6 md:mx-0"
           >
             <div className="text-center mb-12 px-6 md:px-0">
               <h3 className="text-3xl font-bold text-foreground mb-4">
