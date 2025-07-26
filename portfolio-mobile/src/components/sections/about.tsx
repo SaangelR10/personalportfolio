@@ -183,47 +183,52 @@ export default function About() {
               </p>
             </div>
             
-            <div className="flex flex-col items-center gap-4 max-w-sm md:max-w-2xl mx-auto px-6 md:px-12">
+            <div className="flex flex-col items-center gap-6 max-w-4xl mx-auto px-6">
               <motion.div 
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, y: 30, rotateX: -15 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                whileHover={{ scale: 1.02, y: -2 }}
-                className="bg-gradient-to-br from-accent-primary/8 to-accent-primary/3 rounded-xl p-4 border border-accent-primary/15 hover:border-accent-primary/30 transition-all duration-300 text-center w-full max-w-xs"
+                transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -8,
+                  rotateY: 5,
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                }}
+                className="bg-gradient-to-br from-accent-primary/10 to-accent-primary/5 rounded-2xl p-6 border border-accent-primary/20 hover:border-accent-primary/40 transition-all duration-500 text-center w-full max-w-sm backdrop-blur-sm"
               >
-                <div className="flex flex-col items-center gap-2 mb-3">
-                  <motion.div 
-                    whileHover={{ rotate: 5, scale: 1.1 }}
-                    transition={{ duration: 0.2 }}
-                    className="w-10 h-10 bg-accent-primary/15 rounded-lg flex items-center justify-center"
-                  >
-                    <Code className="w-5 h-5 text-accent-primary" />
-                  </motion.div>
+                                  <div className="flex flex-col items-center gap-3 mb-4">
+                    <motion.div 
+                      whileHover={{ rotate: 360, scale: 1.2 }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
+                      className="w-12 h-12 bg-gradient-to-br from-accent-primary/20 to-accent-primary/10 rounded-xl flex items-center justify-center shadow-lg"
+                    >
+                      <Code className="w-6 h-6 text-accent-primary" />
+                    </motion.div>
                   <div>
                     <h4 className="text-sm font-semibold text-foreground">Frontend Developer</h4>
                     <p className="text-xs text-accent-primary/80 font-medium">Especialista</p>
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-1 justify-center">
+                <div className="flex flex-wrap gap-2 justify-center">
                   <motion.span 
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                    className="px-2 py-0.5 bg-blue-500/10 text-blue-500 text-xs font-medium rounded-md"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-blue-600/20 text-blue-500 text-sm font-medium rounded-full border border-blue-500/20 hover:border-blue-500/40"
                   >
                     React
                   </motion.span>
                   <motion.span 
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                    className="px-2 py-0.5 bg-purple-500/10 text-purple-500 text-xs font-medium rounded-md"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="px-3 py-1 bg-gradient-to-r from-purple-500/20 to-purple-600/20 text-purple-500 text-sm font-medium rounded-full border border-purple-500/20 hover:border-purple-500/40"
                   >
                     Next.js
                   </motion.span>
                   <motion.span 
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                    className="px-2 py-0.5 bg-cyan-500/10 text-cyan-500 text-xs font-medium rounded-md"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 text-cyan-500 text-sm font-medium rounded-full border border-cyan-500/20 hover:border-cyan-500/40"
                   >
                     TypeScript
                   </motion.span>
@@ -231,45 +236,50 @@ export default function About() {
               </motion.div>
               
               <motion.div 
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, y: 30, rotateX: -15 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                whileHover={{ scale: 1.02, y: -2 }}
-                className="bg-gradient-to-br from-accent-secondary/8 to-accent-secondary/3 rounded-xl p-4 border border-accent-secondary/15 hover:border-accent-secondary/30 transition-all duration-300 text-center w-full max-w-xs"
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -8,
+                  rotateY: 5,
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                }}
+                className="bg-gradient-to-br from-accent-secondary/10 to-accent-secondary/5 rounded-2xl p-6 border border-accent-secondary/20 hover:border-accent-secondary/40 transition-all duration-500 text-center w-full max-w-sm backdrop-blur-sm"
               >
-                <div className="flex flex-col items-center gap-2 mb-3">
+                <div className="flex flex-col items-center gap-3 mb-4">
                   <motion.div 
-                    whileHover={{ rotate: 5, scale: 1.1 }}
-                    transition={{ duration: 0.2 }}
-                    className="w-10 h-10 bg-accent-secondary/15 rounded-lg flex items-center justify-center"
+                    whileHover={{ rotate: 360, scale: 1.2 }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="w-12 h-12 bg-gradient-to-br from-accent-secondary/20 to-accent-secondary/10 rounded-xl flex items-center justify-center shadow-lg"
                   >
-                    <User className="w-5 h-5 text-accent-secondary" />
+                    <User className="w-6 h-6 text-accent-secondary" />
                   </motion.div>
                   <div>
                     <h4 className="text-sm font-semibold text-foreground">UI/UX Designer</h4>
                     <p className="text-xs text-accent-secondary/80 font-medium">Creativo</p>
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-1 justify-center">
+                <div className="flex flex-wrap gap-2 justify-center">
                   <motion.span 
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                    className="px-2 py-0.5 bg-pink-500/10 text-pink-500 text-xs font-medium rounded-md"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="px-3 py-1 bg-gradient-to-r from-pink-500/20 to-pink-600/20 text-pink-500 text-sm font-medium rounded-full border border-pink-500/20 hover:border-pink-500/40"
                   >
                     Figma
                   </motion.span>
                   <motion.span 
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                    className="px-2 py-0.5 bg-orange-500/10 text-orange-500 text-xs font-medium rounded-md"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="px-3 py-1 bg-gradient-to-r from-orange-500/20 to-orange-600/20 text-orange-500 text-sm font-medium rounded-full border border-orange-500/20 hover:border-orange-500/40"
                   >
                     Adobe XD
                   </motion.span>
                   <motion.span 
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                    className="px-2 py-0.5 bg-indigo-500/10 text-indigo-500 text-xs font-medium rounded-md"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="px-3 py-1 bg-gradient-to-r from-indigo-500/20 to-indigo-600/20 text-indigo-500 text-sm font-medium rounded-full border border-indigo-500/20 hover:border-indigo-500/40"
                   >
                     Prototyping
                   </motion.span>
@@ -277,38 +287,43 @@ export default function About() {
               </motion.div>
               
               <motion.div 
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, y: 30, rotateX: -15 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                whileHover={{ scale: 1.02, y: -2 }}
-                className="bg-gradient-to-br from-accent-success/8 to-accent-success/3 rounded-xl p-4 border border-accent-success/15 hover:border-accent-success/30 transition-all duration-300 text-center w-full max-w-xs"
+                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -8,
+                  rotateY: 5,
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                }}
+                className="bg-gradient-to-br from-accent-success/10 to-accent-success/5 rounded-2xl p-6 border border-accent-success/20 hover:border-accent-success/40 transition-all duration-500 text-center w-full max-w-sm backdrop-blur-sm"
               >
-                <div className="flex flex-col items-center gap-2 mb-3">
+                <div className="flex flex-col items-center gap-3 mb-4">
                   <motion.div 
-                    whileHover={{ rotate: 5, scale: 1.1 }}
-                    transition={{ duration: 0.2 }}
-                    className="w-10 h-10 bg-accent-success/15 rounded-lg flex items-center justify-center"
+                    whileHover={{ rotate: 360, scale: 1.2 }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                    className="w-12 h-12 bg-gradient-to-br from-accent-success/20 to-accent-success/10 rounded-xl flex items-center justify-center shadow-lg"
                   >
-                    <Clock className="w-5 h-5 text-accent-success" />
+                    <Clock className="w-6 h-6 text-accent-success" />
                   </motion.div>
                   <div>
                     <h4 className="text-sm font-semibold text-foreground">Mobile Developer</h4>
                     <p className="text-xs text-accent-success/80 font-medium">Nativo</p>
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-1 justify-center">
+                <div className="flex flex-wrap gap-2 justify-center">
                   <motion.span 
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                    className="px-2 py-0.5 bg-teal-500/10 text-teal-500 text-xs font-medium rounded-md"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="px-3 py-1 bg-gradient-to-r from-teal-500/20 to-teal-600/20 text-teal-500 text-sm font-medium rounded-full border border-teal-500/20 hover:border-teal-500/40"
                   >
                     React Native
                   </motion.span>
                   <motion.span 
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                    className="px-2 py-0.5 bg-emerald-500/10 text-emerald-500 text-xs font-medium rounded-md"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="px-3 py-1 bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 text-emerald-500 text-sm font-medium rounded-full border border-emerald-500/20 hover:border-emerald-500/40"
                   >
                     Flutter
                   </motion.span>
