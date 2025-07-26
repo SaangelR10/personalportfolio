@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Sparkles, Code, Globe, Smartphone } from 'lucide-react';
+import { ArrowDown, Sparkles, Code, Globe, Smartphone, Star, Zap, Target } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -15,7 +15,7 @@ export default function Hero() {
       </div>
 
       {/* Contenido principal */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-6 pb-20">
         {/* Badge de estado */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex justify-center items-center gap-8 mb-16"
+          className="flex flex-wrap justify-center items-center gap-4 mb-16"
         >
           <div className="flex items-center gap-3 bg-background-secondary/60 rounded-xl px-4 py-3 border border-border">
             <Code className="w-6 h-6 text-accent-primary" />
@@ -71,12 +71,42 @@ export default function Hero() {
           </div>
         </motion.div>
 
+        {/* Características destacadas */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-4xl mx-auto"
+        >
+          <div className="bg-background-secondary/40 rounded-2xl p-6 border border-border">
+            <div className="w-12 h-12 bg-accent-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <Star className="w-6 h-6 text-accent-primary" />
+            </div>
+            <h3 className="text-lg font-bold text-foreground mb-2">Calidad Premium</h3>
+            <p className="text-sm text-foreground-secondary">Código limpio y mantenible</p>
+          </div>
+          <div className="bg-background-secondary/40 rounded-2xl p-6 border border-border">
+            <div className="w-12 h-12 bg-accent-secondary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <Zap className="w-6 h-6 text-accent-secondary" />
+            </div>
+            <h3 className="text-lg font-bold text-foreground mb-2">Rendimiento</h3>
+            <p className="text-sm text-foreground-secondary">Aplicaciones rápidas y eficientes</p>
+          </div>
+          <div className="bg-background-secondary/40 rounded-2xl p-6 border border-border">
+            <div className="w-12 h-12 bg-accent-success/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <Target className="w-6 h-6 text-accent-success" />
+            </div>
+            <h3 className="text-lg font-bold text-foreground mb-2">Enfoque UX</h3>
+            <p className="text-sm text-foreground-secondary">Experiencias intuitivas</p>
+          </div>
+        </motion.div>
+
         {/* Botones CTA mejorados */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20"
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
         >
           <Button 
             size="lg" 
@@ -94,7 +124,7 @@ export default function Hero() {
           </Button>
         </motion.div>
 
-        {/* Indicador de scroll elegante */}
+        {/* Indicador de scroll elegante - ahora en posición fija */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
