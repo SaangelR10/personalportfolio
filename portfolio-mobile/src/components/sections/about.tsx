@@ -1,23 +1,27 @@
 "use client";
 
 import { motion, useAnimation } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Download, Mail, MapPin, Calendar, User, Code, Award, Clock } from 'lucide-react';
 import { personalInfo } from '@/lib/data';
 
 export default function About() {
-  // Estadísticas
-  const stats = [
+  // Estadísticas con useMemo para evitar re-renders
+  const stats = useMemo(() => [
     { value: 3, suffix: '+', label: 'Años de Experiencia', color: 'text-accent-primary' },
     { value: 20, suffix: '+', label: 'Proyectos Completados', color: 'text-accent-secondary' },
     { value: 15, suffix: '+', label: 'Tecnologías Dominadas', color: 'text-accent-success' },
     { value: 100, suffix: '%', label: 'Satisfacción', color: 'text-accent-primary' },
-  ];
+  ], []);
 
-  // Animaciones de contador para cada estadística
-  const [counts, setCounts] = useState(stats.map(() => 0));
-  const controlsArrRef = useRef(stats.map(() => useAnimation()));
+  // Animaciones de contador para cada estadística - creadas individualmente
+  const [counts, setCounts] = useState([0, 0, 0, 0]);
+  const control1 = useAnimation();
+  const control2 = useAnimation();
+  const control3 = useAnimation();
+  const control4 = useAnimation();
+  const controls = [control1, control2, control3, control4];
   const hasAnimated = useRef(false);
 
   useEffect(() => {
@@ -27,7 +31,7 @@ export default function About() {
         const rect = section.getBoundingClientRect();
         if (rect.top < window.innerHeight - 100) {
           stats.forEach((stat, i) => {
-            controlsArrRef.current[i].start({ count: stat.value });
+            controls[i].start({ count: stat.value });
           });
           hasAnimated.current = true;
         }
@@ -36,7 +40,7 @@ export default function About() {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [stats]);
+  }, [stats, controls]);
 
   return (
     <section id="about" className="bg-background-secondary py-24 px-6">
@@ -127,7 +131,7 @@ export default function About() {
               <div key={stat.label} className="flex flex-col items-center justify-center">
                 <motion.span
                   initial={{ count: 0 }}
-                  animate={controlsArrRef.current[i]}
+                  animate={controls[i]}
                   transition={{ duration: 1.5, ease: 'easeOut' }}
                   onUpdate={latest => setCounts(prev => {
                     const arr = [...prev];
