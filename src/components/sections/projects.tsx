@@ -42,7 +42,7 @@ export default function Projects() {
 
         {/* Grid de proyectos premium */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 max-w-4xl mx-auto px-6 md:px-8 lg:px-12" style={{ marginLeft: '8px', marginRight: '8px' }}>
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <div
                 key={project.id}
                 className="bg-gradient-to-br from-background-secondary/90 to-background-secondary/70 rounded-3xl border border-border-light/50 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group backdrop-blur-sm hover:scale-105 hover:-translate-y-2"
