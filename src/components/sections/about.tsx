@@ -7,10 +7,17 @@ import { Download, Mail, MapPin, Calendar, User, Code, Award, Clock } from 'luci
 import { personalInfo } from '@/lib/data';
 
 export default function About() {
-  // Animación de contador para años de experiencia
-  const [exp, setExp] = useState(0);
-  const targetExp = 3;
-  const controls = useAnimation();
+  // Estadísticas
+  const stats = [
+    { value: 3, suffix: '+', label: 'Años de Experiencia', color: 'text-accent-primary' },
+    { value: 20, suffix: '+', label: 'Proyectos Completados', color: 'text-accent-secondary' },
+    { value: 15, suffix: '+', label: 'Tecnologías Dominadas', color: 'text-accent-success' },
+    { value: 100, suffix: '%', label: 'Satisfacción', color: 'text-accent-primary' },
+  ];
+
+  // Animaciones de contador para cada estadística
+  const [counts, setCounts] = useState(stats.map(() => 0));
+  const controlsArr = stats.map(() => useAnimation());
   const hasAnimated = useRef(false);
 
   useEffect(() => {
@@ -19,7 +26,9 @@ export default function About() {
       if (section && !hasAnimated.current) {
         const rect = section.getBoundingClientRect();
         if (rect.top < window.innerHeight - 100) {
-          controls.start({ count: targetExp });
+          stats.forEach((stat, i) => {
+            controlsArr[i].start({ count: stat.value });
+          });
           hasAnimated.current = true;
         }
       }
@@ -27,7 +36,7 @@ export default function About() {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [controls]);
+  }, []);
 
   return (
     <section id="about" className="bg-background-secondary py-24 px-6">
@@ -105,25 +114,35 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Estadística de experiencia animada */}
+          {/* Estadísticas animadas minimalistas */}
           <motion.div
             id="about-exp"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col items-center justify-center"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
           >
-            <motion.span
-              initial={{ count: 0 }}
-              animate={controls}
-              transition={{ duration: 1.5, ease: 'easeOut' }}
-              onUpdate={latest => setExp(Math.round(latest.count))}
-              className="text-5xl font-extrabold text-accent-primary mb-2"
-            >
-              {exp}+
-            </motion.span>
-            <div className="text-lg text-foreground-secondary">Años de Experiencia</div>
+            {stats.map((stat, i) => (
+              <div key={stat.label} className="flex flex-col items-center justify-center">
+                <motion.span
+                  initial={{ count: 0 }}
+                  animate={controlsArr[i]}
+                  transition={{ duration: 1.5, ease: 'easeOut' }}
+                  onUpdate={latest => setCounts(prev => {
+                    const arr = [...prev];
+                    arr[i] = Math.round(latest.count);
+                    return arr;
+                  })}
+                  className={`text-4xl md:text-5xl font-extrabold ${stat.color} mb-2`}
+                >
+                  {counts[i]}{stat.suffix}
+                </motion.span>
+                <div className="text-base md:text-lg text-foreground-secondary text-center leading-tight">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </motion.div>
 
           {/* Experiencia resumida (sin cambios por ahora) */}
