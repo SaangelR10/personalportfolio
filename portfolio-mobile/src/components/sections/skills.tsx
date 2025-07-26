@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { skills } from '@/lib/data';
+import { Code, Server, Wrench, Lightbulb, React, TypeScript, Next, Node, Database, Git, Docker, Figma } from 'lucide-react';
 
 const skillCategories = [
-  { id: 'frontend', name: 'Frontend', icon: '🎨' },
-  { id: 'backend', name: 'Backend', icon: '⚙️' },
-  { id: 'tools', name: 'Herramientas', icon: '🛠️' },
-  { id: 'soft', name: 'Soft Skills', icon: '💡' },
+  { id: 'frontend', name: 'Frontend', icon: Code },
+  { id: 'backend', name: 'Backend', icon: Server },
+  { id: 'tools', name: 'Herramientas', icon: Wrench },
+  { id: 'soft', name: 'Soft Skills', icon: Lightbulb },
 ];
 
 export default function Skills() {
@@ -18,45 +19,52 @@ export default function Skills() {
     return skills.filter(skill => skill.category === category);
   };
 
+  const getSkillIcon = (skillName: string) => {
+    const iconMap: { [key: string]: any } = {
+      'React': React,
+      'TypeScript': TypeScript,
+      'Next.js': Next,
+      'Node.js': Node,
+      'MongoDB': Database,
+      'PostgreSQL': Database,
+      'Git': Git,
+      'Docker': Docker,
+      'Figma': Figma,
+    };
+    
+    return iconMap[skillName] || Code;
+  };
+
   const activeSkills = getSkillsByCategory(activeCategory);
 
   return (
     <section id="skills" className="bg-background-secondary py-24 px-6">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-foreground text-center mb-16"
-        >
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground text-center mb-16">
           Habilidades
-        </motion.h2>
+        </h2>
 
         {/* Filtros de categorías */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-16"
-        >
-          {skillCategories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center gap-3 px-6 py-4 rounded-2xl font-medium border transition-all duration-300 text-sm
-                ${activeCategory === category.id
-                  ? 'bg-gradient-to-r from-accent-primary to-accent-secondary text-white border-transparent shadow-lg scale-105'
-                  : 'bg-background/50 text-foreground-secondary border-border hover:bg-background hover:text-foreground hover:scale-105'}
-              `}
-            >
-              <span className="text-lg">{category.icon}</span>
-              <span>{category.name}</span>
-            </button>
-          ))}
-        </motion.div>
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {skillCategories.map((category) => {
+            const IconComponent = category.icon;
+            return (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`flex items-center gap-3 px-6 py-4 rounded-2xl font-medium border transition-all duration-300 text-sm
+                  ${activeCategory === category.id
+                    ? 'bg-gradient-to-r from-accent-primary to-accent-secondary text-white border-transparent shadow-lg scale-105'
+                    : 'bg-background/50 text-foreground-secondary border-border hover:bg-background hover:text-foreground hover:scale-105'}
+                `}
+              >
+                <IconComponent className="w-5 h-5" />
+                <span>{category.name}</span>
+              </button>
+            );
+          })}
+        </div>
 
         {/* Contenido de habilidades */}
         <AnimatePresence mode="wait">
@@ -70,8 +78,11 @@ export default function Skills() {
           >
             {/* Header de la categoría */}
             <div className="text-center mb-12">
-              <div className="text-4xl mb-4">
-                {skillCategories.find(cat => cat.id === activeCategory)?.icon}
+              <div className="w-16 h-16 bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                {(() => {
+                  const IconComponent = skillCategories.find(cat => cat.id === activeCategory)?.icon;
+                  return IconComponent ? <IconComponent className="w-8 h-8 text-accent-primary" /> : null;
+                })()}
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-2">
                 {skillCategories.find(cat => cat.id === activeCategory)?.name}
@@ -83,63 +94,81 @@ export default function Skills() {
 
             {/* Grid de habilidades */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {activeSkills.map((skill, index) => (
-                <motion.div
-                  key={skill.id}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-background/50 rounded-2xl p-6 border border-border-light shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <h4 className="text-lg font-bold text-foreground">{skill.name}</h4>
-                    <span className="text-sm font-bold text-accent-primary">{skill.level}%</span>
+              {activeSkills.map((skill, index) => {
+                const SkillIcon = getSkillIcon(skill.name);
+                return (
+                  <div
+                    key={skill.id}
+                    className="bg-background/50 rounded-2xl p-6 border border-border-light shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-2"
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-accent-primary/20 to-accent-primary/10 rounded-xl flex items-center justify-center">
+                        <SkillIcon className="w-6 h-6 text-accent-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-foreground">{skill.name}</h4>
+                        <span className="text-sm font-bold text-accent-primary">{skill.level}%</span>
+                      </div>
+                    </div>
+                    
+                    {/* Rueda de progreso */}
+                    <div className="relative w-20 h-20 mx-auto mb-4">
+                      <svg className="w-20 h-20 transform -rotate-90" viewBox="0 0 36 36">
+                        <path
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                          fill="none"
+                          stroke="#374151"
+                          strokeWidth="2"
+                        />
+                        <path
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                          fill="none"
+                          stroke="url(#gradient)"
+                          strokeWidth="2"
+                          strokeDasharray={`${skill.level}, 100`}
+                          strokeLinecap="round"
+                        />
+                        <defs>
+                          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#3B82F6" />
+                            <stop offset="100%" stopColor="#8B5CF6" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-sm font-bold text-foreground">{skill.level}%</span>
+                      </div>
+                    </div>
+                    
+                    <p className="text-sm text-foreground-secondary leading-relaxed text-center">
+                      {skill.description}
+                    </p>
                   </div>
-                  
-                  {/* Barra de progreso */}
-                  <div className="w-full h-3 bg-background-tertiary rounded-full mb-3 overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1, delay: index * 0.1 }}
-                      className="h-full bg-gradient-to-r from-accent-primary to-accent-secondary rounded-full"
-                    />
-                  </div>
-                  
-                  <p className="text-sm text-foreground-secondary leading-relaxed">
-                    {skill.description}
-                  </p>
-                </motion.div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Mensaje si no hay habilidades */}
             {activeSkills.length === 0 && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-center py-16"
-              >
-                <div className="text-6xl mb-6">🔍</div>
+              <div className="text-center py-16">
+                <div className="w-16 h-16 bg-accent-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-8 h-8 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
                 <h3 className="text-xl font-bold text-foreground mb-4">
                   No hay habilidades en esta categoría
                 </h3>
                 <p className="text-foreground-secondary">
                   Prueba con otra categoría
                 </p>
-              </motion.div>
+              </div>
             )}
           </motion.div>
         </AnimatePresence>
 
         {/* Estadísticas generales */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="bg-background/50 rounded-2xl p-6 border border-border-light text-center">
             <div className="text-2xl font-bold text-accent-primary mb-2">
               {skills.filter(s => s.category === 'frontend').length}
