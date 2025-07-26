@@ -17,7 +17,7 @@ export default function About() {
 
   // Animaciones de contador para cada estadística
   const [counts, setCounts] = useState(stats.map(() => 0));
-  const controlsArr = stats.map(() => useAnimation());
+  const controlsArrRef = useRef(stats.map(() => useAnimation()));
   const hasAnimated = useRef(false);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function About() {
         const rect = section.getBoundingClientRect();
         if (rect.top < window.innerHeight - 100) {
           stats.forEach((stat, i) => {
-            controlsArr[i].start({ count: stat.value });
+            controlsArrRef.current[i].start({ count: stat.value });
           });
           hasAnimated.current = true;
         }
@@ -36,7 +36,7 @@ export default function About() {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [stats]);
 
   return (
     <section id="about" className="bg-background-secondary py-24 px-6">
@@ -127,7 +127,7 @@ export default function About() {
               <div key={stat.label} className="flex flex-col items-center justify-center">
                 <motion.span
                   initial={{ count: 0 }}
-                  animate={controlsArr[i]}
+                  animate={controlsArrRef.current[i]}
                   transition={{ duration: 1.5, ease: 'easeOut' }}
                   onUpdate={latest => setCounts(prev => {
                     const arr = [...prev];
