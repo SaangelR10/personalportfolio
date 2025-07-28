@@ -6,7 +6,28 @@ export interface Project {
   technologies: string[];
   demoUrl?: string;
   githubUrl?: string;
-  category: 'frontend' | 'fullstack' | 'mobile' | 'design';
+  category: 'frontend' | 'fullstack' | 'mobile' | 'design' | 'backend';
+  featured?: boolean;
+  stats?: {
+    downloads?: string;
+    rating?: number;
+    users?: string;
+    performance?: string;
+    accessibility?: string;
+    seo?: string;
+    dataPoints?: string;
+    uptime?: string;
+    tasks?: string;
+    posts?: string;
+    messages?: string;
+    workouts?: string;
+    calories?: string;
+    content?: string;
+    accuracy?: string;
+    trades?: string;
+    profit?: string;
+  };
+  highlights?: string[];
 }
 
 export interface Skill {
@@ -16,6 +37,8 @@ export interface Skill {
   level: number;
   category: 'frontend' | 'backend' | 'tools' | 'soft';
   description: string;
+  experience?: string;
+  projects?: number;
 }
 
 export interface TimelineItem {
@@ -25,12 +48,27 @@ export interface TimelineItem {
   description: string;
   company?: string;
   technologies?: string[];
+  achievements?: string[];
 }
 
 export interface SocialLink {
   name: string;
   url: string;
   icon: string;
+  username?: string;
+}
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  publishedAt: string;
+  readTime: string;
+  category: string;
+  tags: string[];
+  image: string;
+  featured?: boolean;
 }
 
 export interface ContactForm {

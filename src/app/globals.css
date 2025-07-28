@@ -37,6 +37,18 @@
   --mobile-padding: 16px;
   --mobile-margin: 24px;
   --touch-target: 48px;
+  
+  /* Espaciado desktop */
+  --desktop-padding: 24px;
+  --desktop-margin: 48px;
+  --max-width-desktop: 1400px;
+  
+  /* Breakpoints consistentes */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
 
 @theme inline {
@@ -90,6 +102,8 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  /* Optimización de scroll */
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -105,13 +119,16 @@ body {
   padding-bottom: var(--safe-area-inset-bottom);
   padding-left: var(--safe-area-inset-left);
   padding-right: var(--safe-area-inset-right);
+  /* Optimización de rendimiento */
+  will-change: scroll-position;
 }
 
-/* Tipografía */
+/* Tipografía mejorada para desktop */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
   font-weight: 600;
   line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 /* Enlaces */
@@ -131,6 +148,8 @@ button, [role="button"] {
   background: none;
   font-family: inherit;
   -webkit-tap-highlight-color: transparent;
+  /* Optimización de rendimiento */
+  will-change: transform;
 }
 
 /* Imágenes */
@@ -142,7 +161,7 @@ img {
 
 /* Scrollbar personalizada */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -151,7 +170,7 @@ img {
 
 ::-webkit-scrollbar-thumb {
   background: var(--accent-primary);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -170,7 +189,7 @@ img {
   outline-offset: 2px;
 }
 
-/* Animaciones optimizadas para móvil */
+/* Animaciones optimizadas */
 @media (prefers-reduced-motion: no-preference) {
   .animate-fade-in {
     animation: fadeIn 0.5s ease-out;
@@ -182,6 +201,22 @@ img {
   
   .animate-scale {
     animation: scale 0.2s ease-out;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
   }
 }
 
@@ -214,6 +249,15 @@ img {
   }
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 /* Utilidades para iOS */
 .ios-safe-top {
   padding-top: var(--safe-area-inset-top);
@@ -229,38 +273,626 @@ img {
   transform: translateZ(0);
 }
 
+/* Mejoras para desktop */
+@media (min-width: 1024px) {
+  body {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  
+  h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1.1;
+  }
+  
+  h2 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.2;
+  }
+  
+  h3 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    line-height: 1.3;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+}
+
+/* ===== SISTEMA DE LAYOUT PERFECTO ===== */
+
+/* Contenedor principal universal */
+.container-perfect {
+  width: 100%;
+  max-width: var(--max-width-desktop);
+  margin: 0 auto;
+  padding: 0 var(--desktop-padding);
+}
+
+/* Contenedor centrado para contenido */
+.container-centered {
+  width: 100%;
+  max-width: var(--max-width-desktop);
+  margin: 0 auto;
+  padding: 0 var(--desktop-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Grid system perfecto */
+.grid-perfect {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Espaciado de secciones optimizado */
 section {
-  margin-top: 80px;
-  margin-bottom: 80px;
+  width: 100%;
+  margin-top: 120px;
+  margin-bottom: 120px;
+  padding: 0 var(--desktop-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Optimización de rendimiento */
+  will-change: transform;
+}
+
+section > div {
+  width: 100%;
+  max-width: var(--max-width-desktop);
+  margin: 0 auto;
 }
 
 section > div > h1,
 section > div > h2,
 section > div > h3 {
-  margin-bottom: 32px;
+  margin-bottom: 48px;
+  text-align: center;
 }
 
 section p,
 section ul,
 section .subtitle,
 section .description {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
+/* Responsive perfecto */
 @media (max-width: 768px) {
   section {
-    margin-top: 48px;
-    margin-bottom: 48px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding: 0 var(--mobile-padding);
   }
+  
   section > div > h1,
   section > div > h2,
   section > div > h3 {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
+  
   section p,
   section ul,
   section .subtitle,
   section .description {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
+  
+  .container-perfect,
+  .container-centered {
+    padding: 0 var(--mobile-padding);
+  }
+}
+
+/* Grid responsivo perfecto */
+@media (min-width: 640px) {
+  .grid-perfect {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-perfect {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-perfect {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid-perfect {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}
+
+/* Grid específico para proyectos */
+.grid-projects {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .grid-projects {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-projects {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid-projects {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}
+
+/* Grid específico para skills */
+.grid-skills {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .grid-skills {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-skills {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Centrado perfecto para elementos */
+.center-perfect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.center-horizontal {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.center-vertical {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Flex utilities perfectas */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* Efectos de hover mejorados para desktop */
+@media (min-width: 1024px) {
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Gradientes de texto mejorados */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 50%, var(--accent-success) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ===== UTILIDADES ESPECÍFICAS ===== */
+
+/* Centrado de texto responsivo */
+.text-center-responsive {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .text-center-responsive {
+    text-align: center;
+  }
+}
+
+/* Espaciado consistente */
+.space-y-perfect > * + * {
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .space-y-perfect > * + * {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .space-y-perfect > * + * {
+    margin-top: 3rem;
+  }
+}
+
+/* Padding consistente */
+.padding-perfect {
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .padding-perfect {
+    padding: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .padding-perfect {
+    padding: 3rem;
+  }
+}
+
+/* Margen consistente */
+.margin-perfect {
+  margin: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .margin-perfect {
+    margin: 2.5rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .margin-perfect {
+    margin: 3rem 0;
+  }
+}
+
+/* ===== UTILIDADES DE ANIMACIÓN ===== */
+
+/* Animaciones de entrada */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-right {
+  animation: fadeInRight 0.6s ease-out forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animaciones de escala */
+.scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animaciones de rotación */
+.rotate-in {
+  animation: rotateIn 0.6s ease-out forwards;
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* ===== UTILIDADES DE EFECTOS ===== */
+
+/* Efectos de glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Efectos de sombra */
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.shadow-glow-success {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.shadow-glow-warning {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+/* Efectos de borde */
+.border-glow {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--background), var(--background)) padding-box,
+              linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)) border-box;
+}
+
+/* ===== UTILIDADES DE ACCESIBILIDAD ===== */
+
+/* Focus visible mejorado */
+.focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== UTILIDADES DE PERFORMANCE ===== */
+
+/* Optimización de GPU */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Optimización de scroll */
+.scroll-optimized {
+  will-change: scroll-position;
+}
+
+/* Optimización de animaciones */
+.animation-optimized {
+  will-change: transform, opacity;
+}
+
+/* ===== UTILIDADES DE RESPONSIVE ===== */
+
+/* Ocultar elementos en móvil */
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+/* Ocultar elementos en desktop */
+@media (min-width: 769px) {
+  .hidden-desktop {
+    display: none !important;
+  }
+}
+
+/* ===== UTILIDADES DE TEXTO ===== */
+
+/* Truncamiento de texto */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.text-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===== UTILIDADES DE POSICIONAMIENTO ===== */
+
+/* Posicionamiento fijo optimizado */
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+/* ===== UTILIDADES DE INTERACCIÓN ===== */
+
+/* Estados de hover mejorados */
+.hover-lift-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift-smooth:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estados de active */
+.active-scale {
+  transform: scale(0.95);
+}
+
+/* Estados de focus */
+.focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* ===== UTILIDADES DE LAYOUT ===== */
+
+/* Aspect ratio containers */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-photo {
+  aspect-ratio: 4 / 3;
+}
+
+/* ===== UTILIDADES DE COLOR ===== */
+
+/* Colores de estado */
+.text-success {
+  color: var(--accent-success);
+}
+
+.text-warning {
+  color: var(--accent-warning);
+}
+
+.text-danger {
+  color: var(--accent-danger);
+}
+
+.bg-success {
+  background-color: var(--accent-success);
+}
+
+.bg-warning {
+  background-color: var(--accent-warning);
+}
+
+.bg-danger {
+  background-color: var(--accent-danger);
 }
